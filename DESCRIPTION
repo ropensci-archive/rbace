@@ -1,0 +1,19 @@
+Package: rbace
+Type: Package
+Title: Bielefeld Academic Search Engine ('BASE') Client
+Description: Bielefeld Academic Search Engine ('BASE') (<https://www.base-search.net/>)
+		client.
+Version: 0.1.0.9000
+Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
+    email = "myrmecocystus@gmail.com"))
+License: MIT + file LICENSE
+URL: https://github.com/ropenscilabs/rbace
+BugReports: https://github.com/ropenscilabs/rbace/issues
+Imports:
+    crul (>= 0.1.0),
+    jsonlite (>= 1.1)
+Suggests:
+    roxygen2 (>= 5.0.1),
+    testthat,
+    covr
+RoxygenNote: 5.0.1
