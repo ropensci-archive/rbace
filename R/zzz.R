@@ -12,12 +12,12 @@ bs_GET <- function(query, ...){
   temp$parse()
 }
 
-bs_err_catcher <- function(x) {
-  xx <- xml2::fromJSON(x$parse())
-  if (any(vapply(c("message", "error"), function(z) z %in% names(xx), logical(1)))) {
-    stop(xx[[1]], call. = FALSE)
-  }
-}
+# bs_err_catcher <- function(x) {
+#   xx <- xml2::fromJSON(x$parse())
+#   if (any(vapply(c("message", "error"), function(z) z %in% names(xx), logical(1)))) {
+#     stop(xx[[1]], call. = FALSE)
+#   }
+# }
 
 bs_base <- function() "https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi"
 

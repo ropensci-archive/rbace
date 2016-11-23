@@ -24,11 +24,18 @@ bs_meta(x)
 
 \item{offset}{(integer) record to start at}
 
-\item{fields}{Fields to return. This doesn't appear to be working though.}
+\item{fields}{(character) Fields to return. This doesn't appear to be
+working though.}
+
+\item{sortby}{(character) field to sort by}
 
 \item{raw}{(logical) If \code{TRUE} returns raw XML, default: \code{FALSE}}
 
 \item{parse}{(character) One of 'list' or 'df'}
+
+\item{...}{curl options passed on to \code{\link[crul]{HttpClient}}}
+
+\item{x}{input to \code{bs_meta}}
 }
 \value{
 XML as character string if \code{parse=FALSE} or data.frame

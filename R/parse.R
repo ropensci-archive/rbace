@@ -1,7 +1,12 @@
+nmtxt <- function(x) {
+  as.list(stats::setNames(xml2::xml_text(x), xml2::xml_attr(x,
+                                                            "name")))
+}
+
 parse_dat <- function(x, parse = "df") {
   temp <- xml2::xml_find_all(x, "//doc")
   tmptmp <- lapply(temp, function(z) {
-    sapply(xml2::xml_children(z), solrium:::nmtxt)
+    sapply(xml2::xml_children(z), nmtxt)
   })
   if (parse == "df") {
     dplyr::bind_rows(lapply(tmptmp, dplyr::as_data_frame))

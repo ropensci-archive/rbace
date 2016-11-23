@@ -7,9 +7,13 @@
 #' @param boost (character) boost string
 #' @param hits (integer) number of results to return
 #' @param offset (integer) record to start at
-#' @param fields Fields to return. This doesn't appear to be working though.
+#' @param fields (character) Fields to return. This doesn't appear to be
+#' working though.
+#' @param sortby (character) field to sort by
 #' @param raw (logical) If \code{TRUE} returns raw XML, default: \code{FALSE}
 #' @param parse (character) One of 'list' or 'df'
+#' @param ... curl options passed on to \code{\link[crul]{HttpClient}}
+#' @param x input to \code{bs_meta}
 #'
 #' @return XML as character string if \code{parse=FALSE} or data.frame
 #'
@@ -81,9 +85,9 @@ bs_meta <- function(x) {
   tmp$row.names <- NULL
   tmp$class <- NULL
   list(
-    query = tibble::data_frame(q = tmp$q, fl = tmp$fl,
+    query = dplyr::data_frame(q = tmp$q, fl = tmp$fl,
                                fq = tmp$fq, start = tmp$start),
-    response = tibble::data_frame(status = tmp$status, num_found = tmp$numFound)
+    response = dplyr::data_frame(status = tmp$status, num_found = tmp$numFound)
   )
 }
 

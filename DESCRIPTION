@@ -11,7 +11,8 @@ URL: https://github.com/ropenscilabs/rbace
 BugReports: https://github.com/ropenscilabs/rbace/issues
 Imports:
     crul (>= 0.1.0),
-    xml2 (>= 1.0.0)
+    xml2 (>= 1.0.0),
+    dplyr
 Suggests:
     roxygen2 (>= 5.0.1),
     testthat,
