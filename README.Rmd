@@ -15,10 +15,6 @@ knitr::opts_chunk$set(
 * [BASE API docs][docs]
 * [BASE - request access][token]
 
-## Authentication
-
-BASE xx
-
 
 ## Install
 
@@ -32,13 +28,29 @@ devtools::install_github("ropenscilabs/rbace")
 library("rbace")
 ```
 
-## xxx
+## search
 
-xxxx
+perform a search
+
+```{r}
+(res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost = "oa"))
+```
+
+get the search metadata
+
+```{r}
+bs_meta(res)
+```
+
 
 ## Meta
 
+* Please [report any issues or bugs](https://github.com/ropenscilabs/rbace/issues).
+* License: MIT
+* Get citation information for `rbace` in R doing `citation(package = 'rbace')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+
+[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
 
 [docs]: https://www.base-search.net/about/download/base_interface.pdf
 [token]: https://www.base-search.net/about/en/contact.php

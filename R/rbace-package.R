@@ -1,7 +1,6 @@
 #' rbace - Bielefeld Academic Search Engine Client
 #'
-#' @import crul
-#' @importFrom jsonlite fromJSON
+#' @import crul xml2
 #' @name rbace-package
 #' @aliases rbace
 #' @docType package

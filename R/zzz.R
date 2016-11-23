@@ -8,19 +8,15 @@ bs_GET <- function(query, ...){
   if (temp$status_code > 201) {
     stop(sprintf("(%s) - %s", temp$status_code, temp$status_http()$message), call. = FALSE)
   }
-  bs_err_catcher(temp)
+  #bs_err_catcher(temp)
   temp$parse()
 }
 
 bs_err_catcher <- function(x) {
-  xx <- jsonlite::fromJSON(x$parse())
+  xx <- xml2::fromJSON(x$parse())
   if (any(vapply(c("message", "error"), function(z) z %in% names(xx), logical(1)))) {
     stop(xx[[1]], call. = FALSE)
   }
-}
-
-bs_parse <- function(x, parse) {
-  jsonlite::fromJSON(x, parse)
 }
 
 bs_base <- function() "https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi"
