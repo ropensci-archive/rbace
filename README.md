@@ -10,7 +10,7 @@ rbace
 
 Data from Bielefeld Academic Search Engine <https://www.base-search.net>
 
-<img src="https://raw.githubusercontent.com/ropenscilabs/rbace/master/inst/img/BASE_search_engine_logo.svg" width="300">
+<img src="inst/img/BASE_search_engine_logo.svg.png" width="300">
 
 ## Install
 
