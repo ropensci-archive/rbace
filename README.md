@@ -10,7 +10,7 @@ rbace
 
 Data from Bielefeld Academic Search Engine <https://www.base-search.net>
 
-<img src="inst/img/BASE_search_engine_logo.svg" width="300">
+<img src="https://raw.githubusercontent.com/ropenscilabs/rbace/master/inst/img/BASE_search_engine_logo.svg" width="300">
 
 ## Install
 
@@ -68,7 +68,7 @@ bs_meta(res)
 #>            <chr>
 #> 1 creator:manghi
 #> # ... with 3 more variables: fl <chr>, fq <chr>, start <dbl>
-#> 
+#>
 #> $response
 #> # A tibble: 1 × 2
 #>   status num_found
