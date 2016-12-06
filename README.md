@@ -8,6 +8,9 @@ rbace
 * [BASE API docs][docs]
 * [BASE - request access][token]
 
+Data from Bielefeld Academic Search Engine <https://www.base-search.net>
+
+<img src="inst/img/BASE_search_engine_logo.svg" width="300">
 
 ## Install
 
@@ -31,28 +34,27 @@ perform a search
 ```r
 (res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost = "oa"))
 #> # A tibble: 10 × 32
-#>                                                             dcdocid
-#>                                                               <chr>
-#> 1  f898519257644410854586b3d0592ae2029580618017b56c73afa9761d8ecd88
-#> 2  af11266426e4e17db308dd11cb9f1a39557545ed43eeba87a5431d05a1fb47b9
-#> 3  90f58aae63988159d62b3f1bf3c7d9c8be2cd3a03fd6ddd6865e97c33c2007c3
-#> 4  fcaa8f5f53d9195e418324565c6a43487ee8264a7b5aee30272e0d1b65bce144
-#> 5  b4843e373d17a5310790ad7430b3fd2180c4895b4c8e36a8c1986f9f5f524d81
-#> 6  967c7f525368ecac33718d2ec5e1feb73b9368a5be84e21cf8efdda93ec848f4
-#> 7  3d820d06c163b43bf2fce2329f876df36c368987761cef1ab5a13ed7bd50aeb0
-#> 8  9be017c21bfdb3141ab9c520881b19cd1803b4d6b987d05278dadc526db9595c
-#> 9  242b251efd929998e12c53076c8f56bf0d3495c00f9797dde527a59edc1b5038
-#> 10 2c669c2f1eff18ed419fb5c7c34423ff1c8e6e375c54f1a7ef9393a86cf897f7
-#> # ... with 31 more variables: dcrelation <chr>, dccontinent <chr>,
-#> #   dclang <chr>, dcrights <chr>, dctitle <chr>, dcdescription <chr>,
-#> #   dcdate <chr>, dcyear <chr>, dchdate <chr>, dccountry <chr>,
-#> #   dcdoi <chr>, dclink <chr>, dccreator <chr>, dcperson <chr>,
-#> #   dccollection <chr>, dcprovider <chr>, dctypenorm <chr>,
-#> #   dcidentifier <chr>, dctype <chr>, dcoa <chr>, dcsource <chr>,
-#> #   dcformat <chr>, dccontenttype <chr>, dclanguage <chr>,
-#> #   dcsubject <chr>, dcpublisher <chr>, dcautoclasscode <chr>,
-#> #   dcdeweytens <chr>, dcdeweyones <chr>, dcdeweyhuns <chr>,
-#> #   dcdeweyfull <chr>
+#>                                                                     dctitle
+#>                                                                       <chr>
+#> 1  Sfide tecnologiche per l'accesso aperto a tutti i prodotti della ricerca
+#> 2                    EFG1914 - EFG metadata schema extension: documentation
+#> 3                OpenAIREplus - OpenAIREPlus specification and release plan
+#> 4                      DRIVER II - Compound object model integration report
+#> 5                                      DRIVER II - Information space report
+#> 6                                       OpenAIRE - Data Model Specification
+#> 7       Traps for sacrifice: Bateson's schizophrenic and Girard's scapegoat
+#> 8              DRIVER - A European Digital Repository Infrastructure - Demo
+#> 9                           DRIVER II - Compound object model specification
+#> 10                                        DRIVER II - Software release plan
+#> # ... with 31 more variables: dcdescription <chr>, dccountry <chr>,
+#> #   dccreator <chr>, dcperson <chr>, dcsource <chr>, dccollection <chr>,
+#> #   dcprovider <chr>, dctypenorm <chr>, dcpublisher <chr>, dcdocid <chr>,
+#> #   dcrelation <chr>, dccontinent <chr>, dclang <chr>, dcformat <chr>,
+#> #   dcrights <chr>, dccontenttype <chr>, dcdate <chr>, dcyear <chr>,
+#> #   dclanguage <chr>, dchdate <chr>, dcdoi <chr>, dclink <chr>,
+#> #   dcidentifier <chr>, dcsubject <chr>, dctype <chr>, dcoa <chr>,
+#> #   dcautoclasscode <chr>, dcdeweytens <chr>, dcdeweyones <chr>,
+#> #   dcdeweyhuns <chr>, dcdeweyfull <chr>
 ```
 
 get the search metadata
@@ -65,13 +67,13 @@ bs_meta(res)
 #>                q
 #>            <chr>
 #> 1 creator:manghi
-#> # ... with 3 more variables: fl <chr>, fq <chr>, start <chr>
+#> # ... with 3 more variables: fl <chr>, fq <chr>, start <dbl>
 #> 
 #> $response
 #> # A tibble: 1 × 2
 #>   status num_found
-#>    <chr>     <chr>
-#> 1      0      1034
+#>    <dbl>     <dbl>
+#> 1      0      1061
 ```
 
 

@@ -15,6 +15,9 @@ knitr::opts_chunk$set(
 * [BASE API docs][docs]
 * [BASE - request access][token]
 
+Data from Bielefeld Academic Search Engine <https://www.base-search.net>
+
+<img src="inst/img/BASE_search_engine_logo.svg" width="300">
 
 ## Install
 
