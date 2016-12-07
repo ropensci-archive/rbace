@@ -8,9 +8,9 @@ rbace
 * [BASE API docs][docs]
 * [BASE - request access][token]
 
-Data from Bielefeld Academic Search Engine <https://www.base-search.net>
+Data from BASE (Bielefeld Academic Search Engine) <https://www.base-search.net>
 
-<img src="inst/img/BASE_search_engine_logo.svg.png" width="300">
+[<img src="inst/img/BASE_search_engine_logo.svg.png" width="300">](https://www.base-search.net)
 
 ## Install
 
@@ -68,7 +68,7 @@ bs_meta(res)
 #>            <chr>
 #> 1 creator:manghi
 #> # ... with 3 more variables: fl <chr>, fq <chr>, start <dbl>
-#>
+#> 
 #> $response
 #> # A tibble: 1 × 2
 #>   status num_found
