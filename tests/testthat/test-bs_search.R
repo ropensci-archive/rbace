@@ -15,6 +15,15 @@ test_that("bs_search works", {
   expect_type(attr(aa, "q"), "character")
   expect_type(attr(aa, "fl"), "character")
   expect_type(attr(aa, "fq"), "character")
+
+  # data are ; separated when more than 1 result
+  ## dcsubject
+  expect_match(aa$dcsubject[1], ";")
+  expect_equal(length(strsplit(aa$dcsubject[1], ";")[[1]]), 5)
+
+  ## dcidentifiers
+  expect_match(aa$dcidentifier[1], ";")
+  expect_equal(length(strsplit(aa$dcidentifier[1], ";")[[1]]), 2)
 })
 
 test_that("bs_search - bs_meta", {

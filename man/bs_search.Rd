@@ -57,6 +57,7 @@ res <- bs_search(target = 'ftubbiepub', query = 'lossau summann')
 res
 res$dcsubject
 res$dccreator
+res$dcidentifier
 attributes(res)
 bs_meta(res)
 

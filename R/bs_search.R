@@ -29,6 +29,7 @@
 #' res
 #' res$dcsubject
 #' res$dccreator
+#' res$dcidentifier
 #' attributes(res)
 #' bs_meta(res)
 #'

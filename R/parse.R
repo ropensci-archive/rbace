@@ -1,6 +1,17 @@
 nmtxt <- function(x) {
-  as.list(stats::setNames(xml2::xml_text(x), xml2::xml_attr(x,
-                                                            "name")))
+  if (xml2::xml_name(x) == "arr") {
+    txt <- paste0(xml2::xml_text(xml2::xml_find_all(x, ".//str")),
+                  collapse = "; ")
+  } else {
+    txt <- xml2::xml_text(x)
+  }
+
+  as.list(
+    stats::setNames(
+      txt,
+      xml2::xml_attr(x, "name")
+    )
+  )
 }
 
 parse_dat <- function(x, parse = "df") {

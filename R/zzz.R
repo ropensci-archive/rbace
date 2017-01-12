@@ -9,7 +9,7 @@ bs_GET <- function(query, ...){
     stop(sprintf("(%s) - %s", temp$status_code, temp$status_http()$message), call. = FALSE)
   }
   #bs_err_catcher(temp)
-  temp$parse()
+  temp$parse("UTF-8")
 }
 
 # bs_err_catcher <- function(x) {
