@@ -20,7 +20,12 @@ parse_dat <- function(x, parse = "df") {
     sapply(xml2::xml_children(z), nmtxt)
   })
   if (parse == "df") {
-    dplyr::bind_rows(lapply(tmptmp, dplyr::as_data_frame))
+    tibble::as_tibble(data.table::setDF(
+      data.table::rbindlist(
+        lapply(tmptmp, data.frame, stringsAsFactors = FALSE),
+        use.names = TRUE, fill = TRUE
+      )
+    ))
   } else {
     tmptmp
   }
@@ -36,7 +41,8 @@ make_atts <- function(x) {
   qtime <- xml2::xml_children(lsts)[[2]]
   qtime <- as.list(stats::setNames(xml2::xml_text(qtime), "QTime"))
   params <- sapply(
-    xml2::xml_children(xml2::xml_find_first(lsts, "lst[@name=\"params\"]")), function(z) {
+    xml2::xml_children(xml2::xml_find_first(lsts, "lst[@name=\"params\"]")),
+    function(z) {
       as.list(stats::setNames(xml2::xml_text(z), xml2::xml_attr(z, "name")))
     })
   req_atts <- c(status, qtime, params)

@@ -10,12 +10,12 @@
 #' @param fields (character) Fields to return. This doesn't appear to be
 #' working though.
 #' @param sortby (character) field to sort by
-#' @param raw (logical) If \code{TRUE} returns raw XML, default: \code{FALSE}
+#' @param raw (logical) If `TRUE` returns raw XML, default: `FALSE`
 #' @param parse (character) One of 'list' or 'df'
-#' @param ... curl options passed on to \code{\link[crul]{HttpClient}}
-#' @param x input to \code{bs_meta}
+#' @param ... curl options passed on to [crul::HttpClient()]
+#' @param x input to `bs_meta`
 #'
-#' @return XML as character string if \code{parse=FALSE} or data.frame
+#' @return XML as character string if `parse = FALSE` or data.frame
 #'
 #' @details BASE asks that requests are not more frequent than 1 per second,
 #' so we enforce the rate limit internally. if you do a single request not
@@ -58,7 +58,8 @@
 #' out <- list()
 #' system.time(
 #' for (i in 1:3) {
-#'   out[[i]] <- bs_search(target = 'ftubbiepub', query = 'lossau summann', hits = 1)
+#'   out[[i]] <- bs_search(target = 'ftubbiepub', query = 'lossau summann',
+#'     hits = 1)
 #' }
 #' )
 #' out
@@ -75,7 +76,6 @@ bs_search <- function(query = NULL, target = NULL, coll = NULL, boost = NULL,
                    sortby = sortby))
   res <- bs_GET(query, ...)
   if (raw) return(res) else return(bs_parse(res, parse))
-
 }
 
 #' @export
@@ -86,9 +86,9 @@ bs_meta <- function(x) {
   tmp$row.names <- NULL
   tmp$class <- NULL
   list(
-    query = dplyr::data_frame(q = tmp$q, fl = tmp$fl,
+    query = tibble::data_frame(q = tmp$q, fl = tmp$fl,
                                fq = tmp$fq, start = tmp$start),
-    response = dplyr::data_frame(status = tmp$status, num_found = tmp$numFound)
+    response = tibble::data_frame(status = tmp$status, num_found = tmp$numFound)
   )
 }
 

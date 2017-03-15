@@ -2,5 +2,3 @@
 
 export(bs_meta)
 export(bs_search)
-import(crul)
-import(xml2)

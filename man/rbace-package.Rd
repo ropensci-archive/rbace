@@ -2,8 +2,8 @@
 % Please edit documentation in R/rbace-package.R
 \docType{package}
 \name{rbace-package}
-\alias{rbace}
 \alias{rbace-package}
+\alias{rbace}
 \title{rbace - Bielefeld Academic Search Engine Client}
 \description{
 rbace - Bielefeld Academic Search Engine Client
@@ -12,4 +12,3 @@ rbace - Bielefeld Academic Search Engine Client
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \keyword{package}
-

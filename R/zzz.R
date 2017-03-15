@@ -1,12 +1,13 @@
 ct <- function(l) Filter(Negate(is.null), l)
 
 bs_GET <- function(query, ...){
-  cli <- HttpClient$new(url = bs_base(), opts = list(...))
+  cli <- crul::HttpClient$new(url = bs_base(), opts = list(...))
   cli$opts$useragent <- rbace_ua()
   cli$headers$`X-USER-AGENT` <- rbace_ua()
   temp <- cli$get(query = query)
   if (temp$status_code > 201) {
-    stop(sprintf("(%s) - %s", temp$status_code, temp$status_http()$message), call. = FALSE)
+    stop(sprintf("(%s) - %s", temp$status_code, temp$status_http()$message),
+         call. = FALSE)
   }
   #bs_err_catcher(temp)
   temp$parse("UTF-8")
@@ -19,7 +20,9 @@ bs_GET <- function(query, ...){
 #   }
 # }
 
-bs_base <- function() "https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi"
+bs_base <- function() {
+  "https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi"
+}
 
 rbace_ua <- function() {
   versions <- c(
