@@ -3,7 +3,7 @@ Type: Package
 Title: Bielefeld Academic Search Engine ('BASE') Client
 Description: Bielefeld Academic Search Engine ('BASE') 
     (<https://www.base-search.net/>) client.
-Version: 0.0.3.9100
+Version: 0.0.3.9210
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE

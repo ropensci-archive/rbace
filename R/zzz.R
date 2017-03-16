@@ -1,7 +1,7 @@
 ct <- function(l) Filter(Negate(is.null), l)
 
-bs_GET <- function(query, ...){
-  cli <- crul::HttpClient$new(url = bs_base(), opts = list(...))
+bs_GET <- function(query, opts){
+  cli <- crul::HttpClient$new(url = bs_base(), opts = opts)
   cli$opts$useragent <- rbace_ua()
   cli$headers$`X-USER-AGENT` <- rbace_ua()
   temp <- cli$get(query = query)

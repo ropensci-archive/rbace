@@ -15,20 +15,57 @@ nmtxt <- function(x) {
 }
 
 parse_dat <- function(x, parse = "df") {
+  # docs
   temp <- xml2::xml_find_all(x, "//doc")
   tmptmp <- lapply(temp, function(z) {
     sapply(xml2::xml_children(z), nmtxt)
   })
+
+  # facets
+  if (
+    xml2::xml_length(
+      xml2::xml_find_first(x, "//lst[@name=\"facet_counts\"]")
+    ) != 0
+  ) {
+    fac <- xml2::xml_children(
+      xml2::xml_find_all(x, "//lst[@name=\"facet_fields\"]")
+    )
+    if (parse == "df") {
+      facs <- stats::setNames(lapply(fac, function(z) {
+        ch <- xml2::xml_children(z)
+        tibble::data_frame(
+          name = xml2::xml_attr(ch, "name"),
+          value = xml2::xml_text(ch)
+        )
+      }), gsub("f_", "", xml2::xml_attr(fac, "name")))
+    } else {
+      facs_list <- stats::setNames(lapply(fac, function(z) {
+        ch <- xml2::xml_children(z)
+        as.list(stats::setNames(
+          xml2::xml_attr(ch, "name"),
+          xml2::xml_text(ch)
+        ))
+      }), gsub("f_", "", xml2::xml_attr(fac, "name")))
+    }
+  }
+
   if (parse == "df") {
-    tibble::as_tibble(data.table::setDF(
+    docs <- tibble::as_tibble(data.table::setDF(
       data.table::rbindlist(
         lapply(tmptmp, data.frame, stringsAsFactors = FALSE),
         use.names = TRUE, fill = TRUE
       )
     ))
+    list(docs = docs, facets = facs)
   } else {
-    tmptmp
+    list(docs = tmptmp, facets = facs_list)
   }
+}
+
+l2df <- function(x) {
+  tibble::as_tibble(data.table::setDF(
+    data.table::rbindlist(x, use.names = TRUE, fill = TRUE)
+  ))
 }
 
 make_atts <- function(x) {

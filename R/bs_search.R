@@ -19,9 +19,24 @@
 #' a single field name (see Appendix, section "Fields", table column
 #' "Sorting"), followed by a whitespace (escaped as + or %20 in URL strings),
 #' followed by sort direction (asc or desc). Default: sorts by relevance
+#' @param facets (character) The response contains an extra section
+#' "facet_counts/facet_fields" with fields from the comma-separated facets
+#' list. This section provides a breakdown or summary of the results. From the
+#' user's perspective, faceted search breaks up search results into multiple
+#' categories, typically showing counts for each, and allows the user to
+#' "drill down" or further restrict their search results based on those facets.
+#' Use of faceting does not affect the results section of a search response.
+#' For existing, pre-defined facet fields see Appendix, section "Fields",
+#' table column "Facet".
+#' @param facet_limit (numeric) Maximum number of constraint counts that
+#' should be returned for the facet fields. Default: 100; min:1; max: 500
+#' @param facet_sort (numeric) Ordering of the facet field constraints:
+#' count - sort by count (highest count first);  index – alphabetical sorting.
+#' Default: count
 #' @param raw (logical) If `TRUE` returns raw XML, default: `FALSE`
 #' @param parse (character) One of 'list' or 'df'
-#' @param ... curl options passed on to [crul::HttpClient()]
+#' @param ... Facet field based query options (See Facet below) or curl
+#' options passed on to [crul::HttpClient()]
 #' @param x input to `bs_meta`
 #'
 #' @return XML as character string if `parse = FALSE` or data.frame
@@ -30,6 +45,12 @@
 #' so we enforce the rate limit internally. if you do a single request not
 #' in a for loop/lapply type situation, this won't be inoked, but will
 #' if doing a for loop/lapply call, and there's no sleep invoked
+#'
+#' @section Facet:
+#' You can optionally pass in search term for specific facet fields.
+#' See example. For existing, pre-defined facet fields see Appendix at
+#' <https://www.base-search.net/about/download/base_interface.pdf>,
+#' section "Fields", table column "Facet"
 #'
 #' @examples \dontrun{
 #' # repository "ftubbiepub" containing the terms
@@ -72,20 +93,47 @@
 #'   }
 #' )
 #' out
+#'
+#' # Faceting
+#' bs_search(query = "unix", facets = c("dcsubject", "dcyear"),
+#'   facet_limit = 10)
+#'
+#' res <- bs_search(query = "unix", facets = c("dcsubject", "dcyear"),
+#'   f_dcsubject = '"computer science"',
+#'   facet_limit = 10, verbose = TRUE)
 #' }
-bs_search <- function(query = NULL, target = NULL, coll = NULL, boost_oa = FALSE,
-                      hits = NULL, offset = NULL, fields = NULL, sortby = NULL,
-                      raw = FALSE, parse = "df", ...) {
+bs_search <- function(query = NULL, target = NULL, coll = NULL,
+  boost_oa = FALSE, hits = NULL, offset = NULL, fields = NULL, sortby = NULL,
+  facets = NULL, facet_limit = 100, facet_sort = NULL, raw = FALSE,
+  parse = "df", ...) {
+
   enforce_rate_limit()
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))
   if (!is.null(fields)) fields <- paste(fields, collapse = ",")
+  if (!is.null(facets)) facets <- paste(facets, collapse = ",")
   query <- ct(list(func = 'PerformSearch', query = query,
                 coll = coll, target = target,
                 boost = if (boost_oa) "oa" else NULL,
                 fields = fields, hits = hits, offset = offset,
-                sortby = sortby))
-  res <- bs_GET(query, ...)
+                sortby = sortby, facets = facets,
+                facet_limit = facet_limit, facet_sort = facet_sort))
+
+  # add any field specific facet parameters
+  facpars <- capture_facet_params(...)
+  query <- c(query, facpars)
+
+  res <- bs_GET(query, drop_facet_params(...))
   if (raw) return(res) else return(bs_parse(res, parse))
+}
+
+capture_facet_params <- function(...) {
+  tmp <- list(...)
+  tmp[grep("f_", names(tmp))]
+}
+
+drop_facet_params <- function(...) {
+  tmp <- list(...)
+  tmp[grep("f_", names(tmp), invert = TRUE)]
 }
 
 #' @export
