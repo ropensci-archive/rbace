@@ -1,15 +1,24 @@
 #' Search BASE
 #'
 #' @export
-#' @param query (character) query string
-#' @param target (character) target code
-#' @param coll (character) collection code
-#' @param boost (character) boost string
-#' @param hits (integer) number of results to return
-#' @param offset (integer) record to start at
+#' @param query (character) query string. For syntax details see Appendix,
+#' section "Query syntax"
+#' @param target (character) Internal name of a single repository as
+#' delivered in [bs_list()]
+#' @param coll (character) collection code. For existing, pre-defined
+#' collections see Appendix, section "Collection-related queries"
+#' @param boost_oa (logical) Push open access documents upwards in the
+#' result list. Default: `FALSE`
+#' @param hits (integer) number of results to return. Default: 10. Max: 100
+#' @param offset (integer) record to start at. Default: 0. Max: 1000
 #' @param fields (character) Fields to return. This doesn't appear to be
-#' working though.
-#' @param sortby (character) field to sort by
+#' working though. The result records only contain fields listed in the
+#' comma-separated field list. For existing, pre-defined fields see Appendix,
+#' section "Fields"
+#' @param sortby (character) field to sort by. A sort ordering must include
+#' a single field name (see Appendix, section "Fields", table column
+#' "Sorting"), followed by a whitespace (escaped as + or %20 in URL strings),
+#' followed by sort direction (asc or desc). Default: sorts by relevance
 #' @param raw (logical) If `TRUE` returns raw XML, default: `FALSE`
 #' @param parse (character) One of 'list' or 'df'
 #' @param ... curl options passed on to [crul::HttpClient()]
@@ -36,7 +45,7 @@
 #' # Italian repositories containing the term "manghi'
 #' # in the "dccreator" field (author).  The flag "boost" pushes open
 #' # access documents upwards in the result list
-#' (res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost = "oa"))
+#' (res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost_oa = TRUE))
 #'
 #' # terms "schmidt" in dccreator field (author) and "biology" in dctitle.
 #' # The response starts after record 5 (offset=5) and contains max.
@@ -57,23 +66,24 @@
 #'
 #' out <- list()
 #' system.time(
-#' for (i in 1:3) {
-#'   out[[i]] <- bs_search(target = 'ftubbiepub', query = 'lossau summann',
-#'     hits = 1)
-#' }
+#'   for (i in 1:3) {
+#'     out[[i]] <- bs_search(target = 'ftubbiepub', query = 'lossau summann',
+#'       hits = 1)
+#'   }
 #' )
 #' out
 #' }
-bs_search <- function(query = NULL, target = NULL, coll = NULL, boost = NULL,
+bs_search <- function(query = NULL, target = NULL, coll = NULL, boost_oa = FALSE,
                       hits = NULL, offset = NULL, fields = NULL, sortby = NULL,
                       raw = FALSE, parse = "df", ...) {
   enforce_rate_limit()
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))
   if (!is.null(fields)) fields <- paste(fields, collapse = ",")
   query <- ct(list(func = 'PerformSearch', query = query,
-                   coll = coll, target = target, boost = boost,
-                   fields = fields, hits = hits, offset = offset,
-                   sortby = sortby))
+                coll = coll, target = target,
+                boost = if (boost_oa) "oa" else NULL,
+                fields = fields, hits = hits, offset = offset,
+                sortby = sortby))
   res <- bs_GET(query, ...)
   if (raw) return(res) else return(bs_parse(res, parse))
 }
@@ -90,12 +100,4 @@ bs_meta <- function(x) {
                                fq = tmp$fq, start = tmp$start),
     response = tibble::data_frame(status = tmp$status, num_found = tmp$numFound)
   )
-}
-
-# enforce rate limits
-enforce_rate_limit <- function() {
-  if (!Sys.getenv('rbace_time') == "") {
-    timesince <- as.numeric(Sys.time()) - as.numeric(Sys.getenv('rbace_time'))
-    if (timesince < 1) Sys.sleep(1 - timesince)
-  }
 }

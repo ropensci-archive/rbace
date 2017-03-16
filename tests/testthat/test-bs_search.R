@@ -33,3 +33,12 @@ test_that("bs_search - bs_meta", {
 
   expect_is(aa, "tbl_df")
 })
+
+# test_that("bs_search - fails well", {
+#   skip_on_cran()
+#
+#   expect_error(
+#     bs_search(coll = 'it', query = 'dccreator:manghi', boost = "oa"),
+#     ""
+#   )
+# })

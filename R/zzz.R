@@ -9,16 +9,8 @@ bs_GET <- function(query, ...){
     stop(sprintf("(%s) - %s", temp$status_code, temp$status_http()$message),
          call. = FALSE)
   }
-  #bs_err_catcher(temp)
   temp$parse("UTF-8")
 }
-
-# bs_err_catcher <- function(x) {
-#   xx <- xml2::fromJSON(x$parse())
-#   if (any(vapply(c("message", "error"), function(z) z %in% names(xx), logical(1)))) {
-#     stop(xx[[1]], call. = FALSE)
-#   }
-# }
 
 bs_base <- function() {
   "https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi"
@@ -35,3 +27,5 @@ rbace_ua <- function() {
   )
   paste0(versions, collapse = " ")
 }
+
+`%||%` <- function(x, y) if (is.null(x)) y else x

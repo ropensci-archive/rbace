@@ -3,7 +3,11 @@ rbace
 
 
 
+[![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
 [![Build Status](https://travis-ci.org/ropenscilabs/rbace.svg?branch=master)](https://travis-ci.org/ropenscilabs/rbace)
+[![codecov](https://codecov.io/gh/ropenscilabs/rbace/branch/master/graph/badge.svg)](https://codecov.io/gh/ropenscilabs/rbace)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbace)](https://github.com/metacran/cranlogs.app)
+
 
 * [BASE API docs][docs]
 * [BASE - request access][token]
@@ -32,29 +36,29 @@ perform a search
 
 
 ```r
-(res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost = "oa"))
+(res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost = TRUE))
 #> # A tibble: 10 × 32
-#>                                                                     dctitle
-#>                                                                       <chr>
-#> 1  Sfide tecnologiche per l'accesso aperto a tutti i prodotti della ricerca
-#> 2                    EFG1914 - EFG metadata schema extension: documentation
-#> 3                OpenAIREplus - OpenAIREPlus specification and release plan
-#> 4                      DRIVER II - Compound object model integration report
-#> 5                                      DRIVER II - Information space report
-#> 6                                       OpenAIRE - Data Model Specification
-#> 7       Traps for sacrifice: Bateson's schizophrenic and Girard's scapegoat
-#> 8              DRIVER - A European Digital Repository Infrastructure - Demo
-#> 9                           DRIVER II - Compound object model specification
-#> 10                                        DRIVER II - Software release plan
-#> # ... with 31 more variables: dcdescription <chr>, dccountry <chr>,
-#> #   dccreator <chr>, dcperson <chr>, dcsource <chr>, dccollection <chr>,
-#> #   dcprovider <chr>, dctypenorm <chr>, dcpublisher <chr>, dcdocid <chr>,
-#> #   dcrelation <chr>, dccontinent <chr>, dclang <chr>, dcformat <chr>,
-#> #   dcrights <chr>, dccontenttype <chr>, dcdate <chr>, dcyear <chr>,
-#> #   dclanguage <chr>, dchdate <chr>, dcdoi <chr>, dclink <chr>,
-#> #   dcidentifier <chr>, dcsubject <chr>, dctype <chr>, dcoa <chr>,
-#> #   dcautoclasscode <chr>, dcdeweytens <chr>, dcdeweyones <chr>,
-#> #   dcdeweyhuns <chr>, dcdeweyfull <chr>
+#>                 dchdate
+#>                   <chr>
+#> 1  2015-03-26T21:03:04Z
+#> 2  2015-03-26T21:03:37Z
+#> 3  2015-03-26T21:03:04Z
+#> 4  2015-03-26T21:03:37Z
+#> 5  2015-03-26T21:03:37Z
+#> 6  2015-03-26T21:03:37Z
+#> 7  2015-03-26T21:03:49Z
+#> 8  2015-03-26T21:02:27Z
+#> 9  2015-03-26T21:03:37Z
+#> 10 2015-03-26T21:03:24Z
+#> # ... with 31 more variables: dcdocid <chr>, dccontinent <chr>,
+#> #   dccountry <chr>, dccollection <chr>, dcprovider <chr>, dctitle <chr>,
+#> #   dccreator <chr>, dcperson <chr>, dcsubject <chr>, dcdescription <chr>,
+#> #   dcdate <chr>, dcyear <chr>, dctype <chr>, dctypenorm <chr>,
+#> #   dcformat <chr>, dccontenttype <chr>, dcidentifier <chr>, dclink <chr>,
+#> #   dcsource <chr>, dclanguage <chr>, dcrelation <chr>, dcrights <chr>,
+#> #   dcdoi <chr>, dcoa <chr>, dclang <chr>, dcautoclasscode <chr>,
+#> #   dcdeweyfull <chr>, dcdeweyhuns <chr>, dcdeweytens <chr>,
+#> #   dcdeweyones <chr>, dcpublisher <chr>
 ```
 
 get the search metadata
@@ -73,7 +77,7 @@ bs_meta(res)
 #> # A tibble: 1 × 2
 #>   status num_found
 #>    <dbl>     <dbl>
-#> 1      0      1061
+#> 1      0      1285
 ```
 
 

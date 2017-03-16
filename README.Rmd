@@ -10,7 +10,11 @@ knitr::opts_chunk$set(
 )
 ```
 
+[![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
 [![Build Status](https://travis-ci.org/ropenscilabs/rbace.svg?branch=master)](https://travis-ci.org/ropenscilabs/rbace)
+[![codecov](https://codecov.io/gh/ropenscilabs/rbace/branch/master/graph/badge.svg)](https://codecov.io/gh/ropenscilabs/rbace)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbace)](https://github.com/metacran/cranlogs.app)
+
 
 * [BASE API docs][docs]
 * [BASE - request access][token]
@@ -36,7 +40,7 @@ library("rbace")
 perform a search
 
 ```{r}
-(res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost = "oa"))
+(res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost = TRUE))
 ```
 
 get the search metadata

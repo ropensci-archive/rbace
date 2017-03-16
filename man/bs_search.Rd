@@ -5,29 +5,38 @@
 \alias{bs_meta}
 \title{Search BASE}
 \usage{
-bs_search(query = NULL, target = NULL, coll = NULL, boost = NULL,
+bs_search(query = NULL, target = NULL, coll = NULL, boost_oa = FALSE,
   hits = NULL, offset = NULL, fields = NULL, sortby = NULL,
   raw = FALSE, parse = "df", ...)
 
 bs_meta(x)
 }
 \arguments{
-\item{query}{(character) query string}
+\item{query}{(character) query string. For syntax details see Appendix,
+section "Query syntax"}
 
-\item{target}{(character) target code}
+\item{target}{(character) Internal name of a single repository as
+delivered in \code{\link[=bs_list]{bs_list()}}}
 
-\item{coll}{(character) collection code}
+\item{coll}{(character) collection code. For existing, pre-defined
+collections see Appendix, section "Collection-related queries"}
 
-\item{boost}{(character) boost string}
+\item{boost_oa}{(logical) Push open access documents upwards in the
+result list. Default: \code{FALSE}}
 
-\item{hits}{(integer) number of results to return}
+\item{hits}{(integer) number of results to return. Default: 10. Max: 100}
 
-\item{offset}{(integer) record to start at}
+\item{offset}{(integer) record to start at. Default: 0. Max: 1000}
 
 \item{fields}{(character) Fields to return. This doesn't appear to be
-working though.}
+working though. The result records only contain fields listed in the
+comma-separated field list. For existing, pre-defined fields see Appendix,
+section "Fields"}
 
-\item{sortby}{(character) field to sort by}
+\item{sortby}{(character) field to sort by. A sort ordering must include
+a single field name (see Appendix, section "Fields", table column
+"Sorting"), followed by a whitespace (escaped as + or %20 in URL strings),
+followed by sort direction (asc or desc). Default: sorts by relevance}
 
 \item{raw}{(logical) If \code{TRUE} returns raw XML, default: \code{FALSE}}
 
@@ -64,7 +73,7 @@ bs_meta(res)
 # Italian repositories containing the term "manghi'
 # in the "dccreator" field (author).  The flag "boost" pushes open
 # access documents upwards in the result list
-(res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost = "oa"))
+(res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost_oa = TRUE))
 
 # terms "schmidt" in dccreator field (author) and "biology" in dctitle.
 # The response starts after record 5 (offset=5) and contains max.
@@ -85,10 +94,10 @@ bs_search(target = 'ftubbiepub', query = 'lossau summann', parse = "list")
 
 out <- list()
 system.time(
-for (i in 1:3) {
-  out[[i]] <- bs_search(target = 'ftubbiepub', query = 'lossau summann',
-    hits = 1)
-}
+  for (i in 1:3) {
+    out[[i]] <- bs_search(target = 'ftubbiepub', query = 'lossau summann',
+      hits = 1)
+  }
 )
 out
 }
