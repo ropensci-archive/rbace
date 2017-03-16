@@ -4,7 +4,7 @@
 #' @param query (character) query string. For syntax details see Appendix,
 #' section "Query syntax"
 #' @param target (character) Internal name of a single repository as
-#' delivered in [bs_list()]
+#' delivered in [bs_repositories()]
 #' @param coll (character) collection code. For existing, pre-defined
 #' collections see Appendix, section "Collection-related queries"
 #' @param boost_oa (logical) Push open access documents upwards in the

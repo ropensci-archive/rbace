@@ -17,7 +17,7 @@ bs_meta(x)
 section "Query syntax"}
 
 \item{target}{(character) Internal name of a single repository as
-delivered in \code{\link[=bs_list]{bs_list()}}}
+delivered in \code{\link[=bs_repositories]{bs_repositories()}}}
 
 \item{coll}{(character) collection code. For existing, pre-defined
 collections see Appendix, section "Collection-related queries"}
