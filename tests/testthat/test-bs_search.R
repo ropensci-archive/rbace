@@ -5,9 +5,11 @@ test_that("bs_search works", {
 
   aa <- bs_search(target = 'ftubbiepub', query = 'lossau summann')
 
-  expect_is(aa, "tbl_df")
-  expect_is(aa$dcdocid, "character")
-  expect_is(aa$dctitle, "character")
+  expect_is(aa, "list")
+  expect_is(aa$docs, "tbl_df")
+  expect_is(aa$facets, "list")
+  expect_is(aa$docs$dcdocid, "character")
+  expect_is(aa$docs$dctitle, "character")
 
   # attributes
   expect_type(attr(aa, "start"), "double")
@@ -18,20 +20,22 @@ test_that("bs_search works", {
 
   # data are ; separated when more than 1 result
   ## dcsubject
-  expect_match(aa$dcsubject[1], ";")
-  expect_equal(length(strsplit(aa$dcsubject[1], ";")[[1]]), 5)
+  expect_match(aa$docs$dcsubject[1], ";")
+  expect_equal(length(strsplit(aa$docs$dcsubject[1], ";")[[1]]), 5)
 
   ## dcidentifiers
-  expect_match(aa$dcidentifier[1], ";")
-  expect_equal(length(strsplit(aa$dcidentifier[1], ";")[[1]]), 2)
+  expect_match(aa$docs$dcidentifier[1], ";")
+  expect_equal(length(strsplit(aa$docs$dcidentifier[1], ";")[[1]]), 2)
 })
 
 test_that("bs_search - bs_meta", {
   skip_on_cran()
 
-  aa <- bs_search(coll = 'it', query = 'dccreator:manghi', boost = "oa")
+  aa <- bs_search(coll = 'it', query = 'dccreator:manghi', boost_oa = TRUE)
 
-  expect_is(aa, "tbl_df")
+  expect_is(aa, "list")
+  expect_is(aa$docs, "tbl_df")
+  expect_is(aa$facets, "list")
 })
 
 # test_that("bs_search - fails well", {
