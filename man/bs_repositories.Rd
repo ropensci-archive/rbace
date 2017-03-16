@@ -22,7 +22,7 @@ List repositories
 }
 \examples{
 \dontrun{
-res <- bs_repositories(coll = "ceu", raw = TRUE)
+res <- bs_repositories(coll = "ceu")
 bs_repositories(coll = "ceu")
 
 bs_repositories(coll = "denw")

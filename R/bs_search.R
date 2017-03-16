@@ -31,7 +31,7 @@
 #' @param facet_limit (numeric) Maximum number of constraint counts that
 #' should be returned for the facet fields. Default: 100; min:1; max: 500
 #' @param facet_sort (numeric) Ordering of the facet field constraints:
-#' count - sort by count (highest count first);  index – alphabetical sorting.
+#' count - sort by count (highest count first);  index - alphabetical sorting.
 #' Default: count
 #' @param raw (logical) If `TRUE` returns raw XML, default: `FALSE`
 #' @param parse (character) One of 'list' or 'df'
@@ -98,7 +98,7 @@
 #' bs_search(query = "unix", facets = c("dcsubject", "dcyear"),
 #'   facet_limit = 10)
 #'
-#' res <- bs_search(query = "unix", facets = c("dcsubject", "dcyear"),
+#' bs_search(query = "unix", facets = c("dcsubject", "dcyear"),
 #'   f_dcsubject = '"computer science"',
 #'   facet_limit = 10, verbose = TRUE)
 #' }

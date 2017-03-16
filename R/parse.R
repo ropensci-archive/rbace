@@ -22,6 +22,7 @@ parse_dat <- function(x, parse = "df") {
   })
 
   # facets
+  facs <- list()
   if (
     xml2::xml_length(
       xml2::xml_find_first(x, "//lst[@name=\"facet_counts\"]")
@@ -39,7 +40,7 @@ parse_dat <- function(x, parse = "df") {
         )
       }), gsub("f_", "", xml2::xml_attr(fac, "name")))
     } else {
-      facs_list <- stats::setNames(lapply(fac, function(z) {
+      facs <- stats::setNames(lapply(fac, function(z) {
         ch <- xml2::xml_children(z)
         as.list(stats::setNames(
           xml2::xml_attr(ch, "name"),
@@ -58,7 +59,7 @@ parse_dat <- function(x, parse = "df") {
     ))
     list(docs = docs, facets = facs)
   } else {
-    list(docs = tmptmp, facets = facs_list)
+    list(docs = tmptmp, facets = facs)
   }
 }
 

@@ -17,5 +17,5 @@ bs_profile <- function(target, ...) {
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))
   query <- ct(list(func = 'ListProfile', target = target))
   x <- bs_GET(query, list(...))
-  unlist(as_list(read_xml(x)), FALSE)
+  unlist(xml2::as_list(xml2::read_xml(x)), FALSE)
 }

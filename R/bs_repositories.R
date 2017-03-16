@@ -7,7 +7,7 @@
 #' @param ... curl options passed on to [crul::HttpClient()]
 #' @return XML as character string if `parse = FALSE` or data.frame
 #' @examples \dontrun{
-#' res <- bs_repositories(coll = "ceu", raw = TRUE)
+#' res <- bs_repositories(coll = "ceu")
 #' bs_repositories(coll = "ceu")
 #'
 #' bs_repositories(coll = "denw")
