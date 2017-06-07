@@ -132,7 +132,7 @@ out
 bs_search(query = "unix", facets = c("dcsubject", "dcyear"),
   facet_limit = 10)
 
-res <- bs_search(query = "unix", facets = c("dcsubject", "dcyear"),
+bs_search(query = "unix", facets = c("dcsubject", "dcyear"),
   f_dcsubject = '"computer science"',
   facet_limit = 10, verbose = TRUE)
 }

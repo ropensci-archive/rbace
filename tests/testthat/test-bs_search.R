@@ -38,6 +38,16 @@ test_that("bs_search - bs_meta", {
   expect_is(aa$facets, "list")
 })
 
+test_that("bs_search - facets work", {
+  skip_on_cran()
+
+  aa <- bs_search(coll = 'it', query = 'dccreator:manghi', boost_oa = TRUE)
+
+  expect_is(aa, "list")
+  expect_is(aa$docs, "tbl_df")
+  expect_is(aa$facets, "list")
+})
+
 # test_that("bs_search - fails well", {
 #   skip_on_cran()
 #

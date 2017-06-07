@@ -3,7 +3,7 @@ Type: Package
 Title: Bielefeld Academic Search Engine ('BASE') Client
 Description: Bielefeld Academic Search Engine ('BASE') 
     (<https://www.base-search.net/>) client.
-Version: 0.0.6.9500
+Version: 0.0.6.9510
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
@@ -17,6 +17,5 @@ Imports:
     tibble
 Suggests:
     roxygen2 (>= 6.0.1),
-    testthat,
-    covr
+    testthat
 RoxygenNote: 6.0.1
