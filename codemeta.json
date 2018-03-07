@@ -1,20 +1,23 @@
 {
-  "@context": ["http://purl.org/codemeta/2.0", "http://schema.org"],
+  "@context": [
+    "http://purl.org/codemeta/2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "rbace",
   "description": "Bielefeld Academic Search Engine ('BASE') \n    (<https://www.base-search.net/>) client.",
   "name": "rbace: Bielefeld Academic Search Engine ('BASE') Client",
-  "codeRepository": "https://github.com/ropenscilabs/rbace",
-  "issueTracker": "https://github.com/ropenscilabs/rbace/issues",
+  "codeRepository": "https://github.com/ropensci/rbace",
+  "issueTracker": "https://github.com/ropensci/rbace/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "0.0.6.9510",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.4.3",
+    "version": "3.4.4",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.4.3 Patched (2018-01-01 r74017)",
+  "runtimePlatform": "R version 3.4.4 beta (2018-03-05 r74359)",
   "author": [
     {
       "@type": "Person",
@@ -102,8 +105,8 @@
       }
     }
   ],
-  "contIntegration": "https://travis-ci.org/ropenscilabs/rbace",
+  "contIntegration": "https://travis-ci.org/ropensci/rbace",
   "developmentStatus": "wip",
-  "readme": "https://github.com/ropenscilabs/rbace/blob/master/README.md",
-  "fileSize": "7.272KB"
+  "readme": "https://github.com/ropensci/rbace/blob/master/README.md",
+  "fileSize": "7.263KB"
 }

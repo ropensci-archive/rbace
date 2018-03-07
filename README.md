@@ -4,8 +4,8 @@ rbace
 
 
 [![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
-[![Build Status](https://travis-ci.org/ropenscilabs/rbace.svg?branch=master)](https://travis-ci.org/ropenscilabs/rbace)
-[![codecov](https://codecov.io/gh/ropenscilabs/rbace/branch/master/graph/badge.svg)](https://codecov.io/gh/ropenscilabs/rbace)
+[![Build Status](https://travis-ci.org/ropensci/rbace.svg?branch=master)](https://travis-ci.org/ropensci/rbace)
+[![codecov](https://codecov.io/gh/ropensci/rbace/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/rbace)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbace)](https://github.com/metacran/cranlogs.app)
 
 
@@ -22,7 +22,7 @@ Development version
 
 
 ```r
-devtools::install_github("ropenscilabs/rbace")
+devtools::install_github("ropensci/rbace")
 ```
 
 
@@ -83,7 +83,7 @@ bs_meta(res)
 
 ## Meta
 
-* Please [report any issues or bugs](https://github.com/ropenscilabs/rbace/issues).
+* Please [report any issues or bugs](https://github.com/ropensci/rbace/issues).
 * License: MIT
 * Get citation information for `rbace` in R doing `citation(package = 'rbace')`
 * Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
