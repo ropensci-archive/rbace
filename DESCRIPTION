@@ -7,7 +7,7 @@ Version: 0.0.6.9510
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/rbace
+URL: https://docs.ropensci.org/rbace, https://github.com/ropensci/rbace
 BugReports: https://github.com/ropensci/rbace/issues
 Roxygen: list(markdown = TRUE)
 Imports:
