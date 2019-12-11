@@ -1,9 +1,9 @@
 ct <- function(l) Filter(Negate(is.null), l)
 
 bs_GET <- function(query, opts){
-  cli <- crul::HttpClient$new(url = bs_base(), opts = opts)
-  cli$headers$`User-Agent` <- rbace_ua()
-  cli$headers$`X-USER-AGENT` <- rbace_ua()
+  cli <- crul::HttpClient$new(url = bs_base(),
+    headers = list(`User-Agent` = rbace_ua(), `X-USER-AGENT` = rbace_ua()),
+    opts = opts)
   temp <- cli$get(query = query)
   if (temp$status_code > 201) {
     stop(sprintf("(%s) - %s", temp$status_code, temp$status_http()$message),
@@ -17,11 +17,9 @@ bs_base <- function() {
 }
 
 rbace_ua <- function() {
-  versions <- c(
-    "r-curl",
-    "crul",
-    "rOpenSci(rbace)"
-  )
+  versions <- c(paste0("r-curl/", utils::packageVersion("curl")),
+    paste0("crul/", utils::packageVersion("crul")), sprintf("rOpenSci(rbace/%s)",
+      utils::packageVersion("rbace")))
   paste0(versions, collapse = " ")
 }
 

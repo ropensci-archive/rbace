@@ -73,7 +73,7 @@ Default: count}
 \item{parse}{(character) One of 'list' or 'df'}
 
 \item{...}{Facet field based query options (See Facet below) or curl
-options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
+options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 
 \item{x}{input to \code{bs_meta}}
 }
@@ -103,9 +103,9 @@ section "Fields", table column "Facet"
 # "lossau" and "summann" (search in the whole document)
 res <- bs_search(target = 'ftubbiepub', query = 'lossau summann')
 res
-res$dcsubject
-res$dccreator
-res$dcidentifier
+res$docs$dcsubject
+res$docs$dccreator
+res$docs$dcidentifier
 attributes(res)
 bs_meta(res)
 

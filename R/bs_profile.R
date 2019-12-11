@@ -3,7 +3,7 @@
 #' @export
 #' @param target (character) Internal name of a single repository as
 #' delivered in [bs_repositories()]
-#' @param ... curl options passed on to [crul::HttpClient()]
+#' @param ... curl options passed on to [crul::verb-GET]
 #' @return XML as character string if `parse = FALSE` or data.frame
 #' @examples \dontrun{
 #' res <- bs_repositories(coll = "de")

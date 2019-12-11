@@ -71,12 +71,11 @@ l2df <- function(x) {
 
 make_atts <- function(x) {
   lsts <- xml2::xml_find_first(x, "lst")
-  status <- xml2::xml_children(lsts)[[1]]
+  status <- xml2::xml_find_first(lsts, "int[@name=\"status\"]")
   status <- as.list(
-    stats::setNames(
-      as.numeric(xml2::xml_text(status)), "status")
+    stats::setNames(as.numeric(xml2::xml_text(status)), "status")
   )
-  qtime <- xml2::xml_children(lsts)[[2]]
+  qtime <- xml2::xml_find_first(lsts, "int[@name=\"QTime\"]")
   qtime <- as.list(stats::setNames(xml2::xml_text(qtime), "QTime"))
   params <- sapply(
     xml2::xml_children(xml2::xml_find_first(lsts, "lst[@name=\"params\"]")),

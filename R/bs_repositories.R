@@ -4,7 +4,7 @@
 #' @param coll (character) collection code. For existing, pre-defined
 #' collections see Appendix, section "Collection-related queries"
 #' @param parse (character) One of 'list' or 'df'
-#' @param ... curl options passed on to [crul::HttpClient()]
+#' @param ... curl options passed on to [crul::verb-GET]
 #' @return XML as character string if `parse = FALSE` or data.frame
 #' @examples \dontrun{
 #' res <- bs_repositories(coll = "ceu")

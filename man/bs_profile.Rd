@@ -10,7 +10,7 @@ bs_profile(target, ...)
 \item{target}{(character) Internal name of a single repository as
 delivered in \code{\link[=bs_repositories]{bs_repositories()}}}
 
-\item{...}{curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
+\item{...}{curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 XML as character string if \code{parse = FALSE} or data.frame

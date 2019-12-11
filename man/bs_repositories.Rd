@@ -12,7 +12,7 @@ collections see Appendix, section "Collection-related queries"}
 
 \item{parse}{(character) One of 'list' or 'df'}
 
-\item{...}{curl options passed on to \code{\link[crul:HttpClient]{crul::HttpClient()}}}
+\item{...}{curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
 XML as character string if \code{parse = FALSE} or data.frame

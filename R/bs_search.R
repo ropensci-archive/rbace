@@ -36,7 +36,7 @@
 #' @param raw (logical) If `TRUE` returns raw XML, default: `FALSE`
 #' @param parse (character) One of 'list' or 'df'
 #' @param ... Facet field based query options (See Facet below) or curl
-#' options passed on to [crul::HttpClient()]
+#' options passed on to [crul::verb-GET]
 #' @param x input to `bs_meta`
 #'
 #' @return XML as character string if `parse = FALSE` or data.frame
@@ -57,9 +57,9 @@
 #' # "lossau" and "summann" (search in the whole document)
 #' res <- bs_search(target = 'ftubbiepub', query = 'lossau summann')
 #' res
-#' res$dcsubject
-#' res$dccreator
-#' res$dcidentifier
+#' res$docs$dcsubject
+#' res$docs$dccreator
+#' res$docs$dcidentifier
 #' attributes(res)
 #' bs_meta(res)
 #'
