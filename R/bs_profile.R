@@ -1,4 +1,4 @@
-#' List repositories
+#' Get the profile for a repository
 #'
 #' @export
 #' @param target (character) Internal name of a single repository as

@@ -9,8 +9,10 @@ rbace
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbace)](https://github.com/metacran/cranlogs.app)
 
 
+Client for interacting with the Bielefeld Academic Search Engine API.
+
 * [BASE API docs][docs]
-* [BASE - request access][token]
+* You may have to ask for access for one or more of IP addresses you'll be accessing BASE from, but you may not. It used to be the case, but now seems like it's not IP restricted anymore. If you do need to, [request access here][token].
 
 Data from BASE (Bielefeld Academic Search Engine) <https://www.base-search.net>
 
@@ -37,7 +39,48 @@ devtools::install_github("ropensci/rbace")
 library("rbace")
 ```
 
-## search
+## Get the profile for a repository
+
+
+
+```r
+bs_profile(target = "ftjhin")
+#> # A tibble: 8 x 2
+#>   name               value                                           
+#>   <chr>              <chr>                                           
+#> 1 activation_date    2019-12-05                                      
+#> 2 country            de                                              
+#> 3 name               HiN - Alexander von Humboldt im Netz (E-Journal)
+#> 4 num_non_oa_records 0                                               
+#> 5 num_oa_cc_records  273                                             
+#> 6 num_oa_pd_records  0                                               
+#> 7 num_oa_records     273                                             
+#> 8 num_records        273
+```
+
+## List repositories for a collection
+
+
+
+```r
+bs_repositories(coll = "ceu")
+#> # A tibble: 2,871 x 2
+#>    name                                                          internal_name  
+#>    <chr>                                                         <chr>          
+#>  1 EUDL European Union Digital Library                           fteudl         
+#>  2 SURF Data Repository                                          ftsurfsara     
+#>  3 Zeitschrift für Parteienwissenschaften (E-Journal)            ftjmip         
+#>  4 Revista Portuguesa de Investigação Comportamental e Social (… ftjrpics       
+#>  5 Erciyes University Research Information System                fterciyesuniv  
+#>  6 HiN - Alexander von Humboldt im Netz (E-Journal)              ftjhin         
+#>  7 Humanistica Lovaniensia. Journal of Neo-Latin Studies         ftjhumanistica 
+#>  8 FarFaR - Pharmacy Repository (Univ. of Belgrade, Fac. of Pha… ftunivbelgradf…
+#>  9 Journal of South Asian Linguistics                            ftjsal         
+#> 10 Scientific and Technical Bulletin оf State Scientific Resear… ftjscivp       
+#> # … with 2,861 more rows
+```
+
+## Search
 
 perform a search
 
@@ -70,9 +113,9 @@ perform a search
 #> list()
 #> 
 #> attr(,"status")
-#> [1] NA
+#> [1] 0
 #> attr(,"QTime")
-#> [1] "0"
+#> [1] "49"
 #> attr(,"q")
 #> [1] "creator:manghi"
 #> attr(,"fl")
@@ -106,7 +149,7 @@ bs_meta(res)
 #> # A tibble: 1 x 2
 #>   status num_found
 #>    <dbl>     <dbl>
-#> 1     NA      4500
+#> 1      0      4500
 ```
 
 

@@ -1,4 +1,4 @@
-#' List repositories
+#' List repositories for a collection
 #'
 #' @export
 #' @param coll (character) collection code. For existing, pre-defined

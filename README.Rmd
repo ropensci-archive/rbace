@@ -43,7 +43,21 @@ devtools::install_github("ropensci/rbace")
 library("rbace")
 ```
 
-## search
+## Get the profile for a repository
+
+
+```{r}
+bs_profile(target = "ftjhin")
+```
+
+## List repositories for a collection
+
+
+```{r}
+bs_repositories(coll = "ceu")
+```
+
+## Search
 
 perform a search
 
