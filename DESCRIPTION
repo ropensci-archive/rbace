@@ -1,11 +1,13 @@
 Package: rbace
 Type: Package
 Title: Bielefeld Academic Search Engine ('BASE') Client
-Description: Bielefeld Academic Search Engine ('BASE') 
-    (<https://www.base-search.net/>) client.
-Version: 0.0.7.91
+Description: Interface to the API for the Bielefeld Academic Search
+    Engine ('BASE') (<https://www.base-search.net/>). 'BASE' is a
+    search engine for more than 150 million scholarly documents from more
+    than 7000 sources.
+Version: 0.1.0
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
-    email = "myrmecocystus@gmail.com"))
+    email = "myrmecocystus@gmail.com", comment = c(ORCID="0000-0003-1444-9135")))
 License: MIT + file LICENSE
 URL: https://docs.ropensci.org/rbace, https://github.com/ropensci/rbace
 BugReports: https://github.com/ropensci/rbace/issues
@@ -21,3 +23,6 @@ Suggests:
     testthat,
     vcr
 RoxygenNote: 7.0.2
+X-schema.org-applicationCategory: Literature
+X-schema.org-keywords: text-ming, literature, scholarly, citations, search
+X-schema.org-isPartOf: https://ropensci.org

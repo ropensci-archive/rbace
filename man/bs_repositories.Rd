@@ -2,7 +2,7 @@
 % Please edit documentation in R/bs_repositories.R
 \name{bs_repositories}
 \alias{bs_repositories}
-\title{List repositories}
+\title{List repositories for a collection}
 \usage{
 bs_repositories(coll, ...)
 }
@@ -18,7 +18,7 @@ https://www.base-search.net/about/download/base_interface.pdf}
 a data.frame of two columns: "name", "internal_name"
 }
 \description{
-List repositories
+List repositories for a collection
 }
 \examples{
 \dontrun{

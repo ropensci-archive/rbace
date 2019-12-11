@@ -2,7 +2,7 @@
 % Please edit documentation in R/bs_profile.R
 \name{bs_profile}
 \alias{bs_profile}
-\title{List repositories}
+\title{Get the profile for a repository}
 \usage{
 bs_profile(target, ...)
 }
@@ -18,7 +18,7 @@ a data.frame, of two columns: "name", "value".
 data.frame to wide by e.g., \code{tidyr::pivot_wider(x)}
 }
 \description{
-List repositories
+Get the profile for a repository
 }
 \examples{
 \dontrun{

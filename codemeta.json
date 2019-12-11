@@ -5,46 +5,38 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "rbace",
-  "description": "Bielefeld Academic Search Engine ('BASE') \n    (<https://www.base-search.net/>) client.",
+  "description": "Interface to the API for the Bielefeld Academic Search\n    Engine ('BASE') (<https://www.base-search.net/>). 'BASE' is a\n    search engine for more than 150 million scholarly documents from more\n    than 7000 sources.",
   "name": "rbace: Bielefeld Academic Search Engine ('BASE') Client",
   "codeRepository": "https://github.com/ropensci/rbace",
   "issueTracker": "https://github.com/ropensci/rbace/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.6.9510",
+  "version": "0.1.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.4.4",
+    "version": "3.6.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.4.4 beta (2018-03-05 r74359)",
+  "runtimePlatform": "R version 3.6.1 Patched (2019-09-23 r77210)",
   "author": [
     {
       "@type": "Person",
       "givenName": "Scott",
       "familyName": "Chamberlain",
-      "email": "myrmecocystus@gmail.com"
+      "email": "myrmecocystus@gmail.com",
+      "@id": "https://orcid.org/0000-0003-1444-9135"
     }
   ],
-  "maintainer": {
-    "@type": "Person",
-    "givenName": "Scott",
-    "familyName": "Chamberlain",
-    "email": "myrmecocystus@gmail.com"
-  },
-  "softwareSuggestions": [
+  "maintainer": [
     {
-      "@type": "SoftwareApplication",
-      "identifier": "roxygen2",
-      "name": "roxygen2",
-      "version": "6.0.1",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      }
-    },
+      "@type": "Person",
+      "givenName": "Scott",
+      "familyName": "Chamberlain",
+      "email": "myrmecocystus@gmail.com",
+      "@id": "https://orcid.org/0000-0003-1444-9135"
+    }
+  ],
+  "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
       "identifier": "testthat",
@@ -52,9 +44,22 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "vcr",
+      "name": "vcr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=vcr"
     }
   ],
   "softwareRequirements": [
@@ -62,25 +67,25 @@
       "@type": "SoftwareApplication",
       "identifier": "crul",
       "name": "crul",
-      "version": "0.3.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=crul"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "xml2",
       "name": "xml2",
-      "version": "1.1.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=xml2"
     },
     {
       "@type": "SoftwareApplication",
@@ -89,9 +94,10 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=data.table"
     },
     {
       "@type": "SoftwareApplication",
@@ -100,13 +106,22 @@
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
-        "name": "Central R Archive Network (CRAN)",
+        "name": "Comprehensive R Archive Network (CRAN)",
         "url": "https://cran.r-project.org"
-      }
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tibble"
     }
   ],
-  "contIntegration": "https://travis-ci.org/ropensci/rbace",
-  "developmentStatus": "wip",
+  "contIntegration": ["https://travis-ci.org/ropensci/rbace", "https://codecov.io/gh/ropensci/rbace"],
+  "developmentStatus": "https://www.repostatus.org/#wip",
   "readme": "https://github.com/ropensci/rbace/blob/master/README.md",
-  "fileSize": "7.263KB"
+  "fileSize": "133.442KB",
+  "relatedLink": "https://docs.ropensci.org/rbace",
+  "contributor": {},
+  "copyrightHolder": {},
+  "funder": {},
+  "applicationCategory": "Literature",
+  "isPartOf": "https://ropensci.org",
+  "keywords": ["text-ming", "literature", "scholarly", "citations", "search", "api-wrapper", "scholarly-metadata", "rstats", "r", "r-package"],
+  "releaseNotes": "https://github.com/ropensci/rbace/blob/master/NEWS.md"
 }
