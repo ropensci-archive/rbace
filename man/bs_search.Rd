@@ -64,7 +64,7 @@ table column "Facet".}
 \item{facet_limit}{(numeric) Maximum number of constraint counts that
 should be returned for the facet fields. Default: 100; min:1; max: 500}
 
-\item{facet_sort}{(numeric) Ordering of the facet field constraints:
+\item{facet_sort}{(character) Ordering of the facet field constraints:
 count - sort by count (highest count first);  index - alphabetical sorting.
 Default: count}
 

@@ -1,0 +1,31 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi?func=ListProfile&target=ftjhin
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 11 Dec 2019 17:02:31 GMT
+      server: Apache
+      transfer-encoding: chunked
+      content-type: text/xml; charset=UTF-8
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <repository><activation_date>2019-12-05</activation_date><country>de</country><name>HiN - Alexander von Humboldt im Netz (E-Journal)</name><num_non_oa_records>0</num_non_oa_records><num_oa_cc_records>273</num_oa_cc_records><num_oa_pd_records>0</num_oa_pd_records><num_oa_records>273</num_oa_records><num_records>273</num_records></repository>
+  recorded_at: 2019-12-11 17:02:32 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0

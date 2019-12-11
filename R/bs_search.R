@@ -30,7 +30,7 @@
 #' table column "Facet".
 #' @param facet_limit (numeric) Maximum number of constraint counts that
 #' should be returned for the facet fields. Default: 100; min:1; max: 500
-#' @param facet_sort (numeric) Ordering of the facet field constraints:
+#' @param facet_sort (character) Ordering of the facet field constraints:
 #' count - sort by count (highest count first);  index - alphabetical sorting.
 #' Default: count
 #' @param raw (logical) If `TRUE` returns raw XML, default: `FALSE`
@@ -109,6 +109,13 @@ bs_search <- function(query = NULL, target = NULL, coll = NULL,
 
   enforce_rate_limit()
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))
+
+  assert(boost_oa, "logical")
+  assert(raw, "logical")
+  assert(hits, c("integer", "numeric"))
+  assert(offset, c("integer", "numeric"))
+  assert(facet_limit, c("integer", "numeric"))
+  assert(facet_sort, "character")
   if (!is.null(fields)) fields <- paste(fields, collapse = ",")
   if (!is.null(facets)) facets <- paste(facets, collapse = ",")
   query <- ct(list(func = 'PerformSearch', query = query,

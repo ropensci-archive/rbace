@@ -18,5 +18,6 @@ Imports:
     data.table,
     tibble
 Suggests:
-    testthat
+    testthat,
+    vcr
 RoxygenNote: 7.0.2

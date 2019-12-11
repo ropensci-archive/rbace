@@ -3,7 +3,9 @@ context("bs_search")
 test_that("bs_search works", {
   skip_on_cran()
 
-  aa <- bs_search(target = 'ftubbiepub', query = 'lossau summann')
+  vcr::use_cassette("bs_search", {
+    aa <- bs_search(target = 'ftubbiepub', query = 'lossau summann')
+  })
 
   expect_is(aa, "list")
   expect_is(aa$docs, "tbl_df")
@@ -31,7 +33,9 @@ test_that("bs_search works", {
 test_that("bs_search - bs_meta", {
   skip_on_cran()
 
-  aa <- bs_search(coll = 'it', query = 'dccreator:manghi', boost_oa = TRUE)
+  vcr::use_cassette("bs_search_meta", {
+    aa <- bs_search(coll = 'it', query = 'dccreator:manghi', boost_oa = TRUE) 
+  })
 
   expect_is(aa, "list")
   expect_is(aa$docs, "tbl_df")
@@ -41,18 +45,28 @@ test_that("bs_search - bs_meta", {
 test_that("bs_search - facets work", {
   skip_on_cran()
 
-  aa <- bs_search(coll = 'it', query = 'dccreator:manghi', boost_oa = TRUE)
+  vcr::use_cassette("bs_search_facets", {
+    aa <- bs_search(coll = 'it', query = 'dccreator:manghi', boost_oa = TRUE)
+  })
 
   expect_is(aa, "list")
   expect_is(aa$docs, "tbl_df")
   expect_is(aa$facets, "list")
 })
 
-# test_that("bs_search - fails well", {
-#   skip_on_cran()
-#
-#   expect_error(
-#     bs_search(coll = 'it', query = 'dccreator:manghi', boost = "oa"),
-#     ""
-#   )
-# })
+test_that("bs_search - fails well", {
+  skip_on_cran()
+
+  expect_error(
+    bs_search(target = 'ftubbiepub', boost_oa = 5),
+    "class logical"
+  )
+  expect_error(
+    bs_search(target = 'ftubbiepub', raw = 5),
+    "class logical"
+  )
+  expect_error(
+    bs_search(target = 'ftubbiepub', offset = ""),
+    "class integer"
+  )
+})

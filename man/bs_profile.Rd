@@ -13,7 +13,9 @@ delivered in \code{\link[=bs_repositories]{bs_repositories()}}}
 \item{...}{curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-XML as character string if \code{parse = FALSE} or data.frame
+a data.frame, of two columns: "name", "value".
+"name" holds the "value" description. you can pivot the
+data.frame to wide by e.g., \code{tidyr::pivot_wider(x)}
 }
 \description{
 List repositories

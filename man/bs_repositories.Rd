@@ -4,18 +4,18 @@
 \alias{bs_repositories}
 \title{List repositories}
 \usage{
-bs_repositories(coll, parse = "df", ...)
+bs_repositories(coll, ...)
 }
 \arguments{
 \item{coll}{(character) collection code. For existing, pre-defined
-collections see Appendix, section "Collection-related queries"}
-
-\item{parse}{(character) One of 'list' or 'df'}
+collections see Appendix, section "Collection-related queries" in
+the Appendix of
+https://www.base-search.net/about/download/base_interface.pdf}
 
 \item{...}{curl options passed on to \link[crul:verb-GET]{crul::verb-GET}}
 }
 \value{
-XML as character string if \code{parse = FALSE} or data.frame
+a data.frame of two columns: "name", "internal_name"
 }
 \description{
 List repositories
@@ -24,7 +24,6 @@ List repositories
 \dontrun{
 res <- bs_repositories(coll = "ceu")
 bs_repositories(coll = "ceu")
-
 bs_repositories(coll = "denw")
 bs_repositories(coll = "de")
 }

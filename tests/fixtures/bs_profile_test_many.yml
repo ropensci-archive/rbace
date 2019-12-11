@@ -1,0 +1,181 @@
+http_interactions:
+- request:
+    method: get
+    uri: https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi?func=ListProfile&target=ftjmip
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 11 Dec 2019 17:03:09 GMT
+      server: Apache
+      transfer-encoding: chunked
+      content-type: text/xml; charset=UTF-8
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <repository><activation_date>2019-12-10</activation_date><country>de</country><name>Zeitschrift für Parteienwissenschaften (E-Journal)</name><num_non_oa_records>0</num_non_oa_records><num_oa_cc_records>59</num_oa_cc_records><num_oa_pd_records>0</num_oa_pd_records><num_oa_records>60</num_oa_records><num_records>60</num_records></repository>
+  recorded_at: 2019-12-11 17:03:20 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi?func=ListProfile&target=ftjfasal
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 11 Dec 2019 17:03:11 GMT
+      server: Apache
+      transfer-encoding: chunked
+      content-type: text/xml; charset=UTF-8
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <repository><activation_date>2019-11-12</activation_date><country>de</country><name>Formal Approaches to South Asian Languages (E-Journal)</name><num_non_oa_records>0</num_non_oa_records><num_oa_cc_records>0</num_oa_cc_records><num_oa_pd_records>0</num_oa_pd_records><num_oa_records>27</num_oa_records><num_records>27</num_records></repository>
+  recorded_at: 2019-12-11 17:03:20 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi?func=ListProfile&target=ftjsub
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 11 Dec 2019 17:03:13 GMT
+      server: Apache
+      transfer-encoding: chunked
+      content-type: text/xml; charset=UTF-8
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <repository><activation_date>2019-11-12</activation_date><country>de</country><name>Proceedings of Sinn und Bedeutung (E-Journal)</name><num_non_oa_records>0</num_non_oa_records><num_oa_cc_records>738</num_oa_cc_records><num_oa_pd_records>0</num_oa_pd_records><num_oa_records>738</num_oa_records><num_records>739</num_records></repository>
+  recorded_at: 2019-12-11 17:03:20 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi?func=ListProfile&target=ftumagdeburgojs
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 11 Dec 2019 17:03:16 GMT
+      server: Apache
+      transfer-encoding: chunked
+      content-type: text/xml; charset=UTF-8
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <repository><activation_date>2019-11-12</activation_date><country>de</country><name>Open-Access-Journals @ Otto-von-Guericke-Universität Magdeburg</name><num_non_oa_records>0</num_non_oa_records><num_oa_cc_records>956</num_oa_cc_records><num_oa_pd_records>0</num_oa_pd_records><num_oa_records>1365</num_oa_records><num_records>1365</num_records></repository>
+  recorded_at: 2019-12-11 17:03:20 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi?func=ListProfile&target=ftjhsyntax
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 11 Dec 2019 17:03:18 GMT
+      server: Apache
+      transfer-encoding: chunked
+      content-type: text/xml; charset=UTF-8
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <repository><activation_date>2019-11-12</activation_date><country>de</country><name>Journal of Historical Syntax</name><num_non_oa_records>0</num_non_oa_records><num_oa_cc_records>26</num_oa_cc_records><num_oa_pd_records>0</num_oa_pd_records><num_oa_records>26</num_oa_records><num_records>26</num_records></repository>
+  recorded_at: 2019-12-11 17:03:20 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0
+- request:
+    method: get
+    uri: https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi?func=ListProfile&target=ftjkimkompakt
+    body:
+      encoding: ''
+      string: ''
+    headers:
+      Accept-Encoding: gzip, deflate
+      Accept: application/json, text/xml, application/xml, */*
+      User-Agent: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+      X-USER-AGENT: r-curl/4.3 crul/0.9.0 rOpenSci(rbace/0.0.7.91)
+  response:
+    status:
+      status_code: '200'
+      message: OK
+      explanation: Request fulfilled, document follows
+    headers:
+      status: HTTP/1.1 200 OK
+      date: Wed, 11 Dec 2019 17:03:20 GMT
+      server: Apache
+      transfer-encoding: chunked
+      content-type: text/xml; charset=UTF-8
+    body:
+      encoding: UTF-8
+      file: no
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <repository><activation_date>2019-11-12</activation_date><country>de</country><name>KIM kompakt (E-Journal)</name><num_non_oa_records>0</num_non_oa_records><num_oa_cc_records>0</num_oa_cc_records><num_oa_pd_records>0</num_oa_pd_records><num_oa_records>0</num_oa_records><num_records>124</num_records></repository>
+  recorded_at: 2019-12-11 17:03:20 GMT
+  recorded_with: vcr/0.4.0, webmockr/0.5.0

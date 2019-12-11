@@ -16,8 +16,10 @@ knitr::opts_chunk$set(
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbace)](https://github.com/metacran/cranlogs.app)
 
 
+Client for interacting with the Bielefeld Academic Search Engine API.
+
 * [BASE API docs][docs]
-* [BASE - request access][token]
+* You may have to ask for access for one or more of IP addresses you'll be accessing BASE from, but you may not. It used to be the case, but now seems like it's not IP restricted anymore. If you do need to, [request access here][token].
 
 Data from BASE (Bielefeld Academic Search Engine) <https://www.base-search.net>
 
