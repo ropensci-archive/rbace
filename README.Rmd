@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-[![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
+[![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Build Status](https://travis-ci.org/ropensci/rbace.svg?branch=master)](https://travis-ci.org/ropensci/rbace)
 [![codecov](https://codecov.io/gh/ropensci/rbace/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/rbace)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbace)](https://github.com/metacran/cranlogs.app)
@@ -24,6 +24,12 @@ Data from BASE (Bielefeld Academic Search Engine) <https://www.base-search.net>
 [<img src="inst/img/BASE_search_engine_logo.svg.png" width="300">](https://www.base-search.net)
 
 ## Install
+
+CRAN version
+
+```{r eval=FALSE}
+install.packages("rbace")
+```
 
 Development version
 
@@ -55,7 +61,8 @@ bs_meta(res)
 * Please [report any issues or bugs](https://github.com/ropensci/rbace/issues).
 * License: MIT
 * Get citation information for `rbace` in R doing `citation(package = 'rbace')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+* Please note that this project is released with a [Contributor Code of Conduct][coc].
+By participating in this project you agree to abide by its terms.
 
 [![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
 
