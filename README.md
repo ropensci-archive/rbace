@@ -16,7 +16,7 @@ Client for interacting with the Bielefeld Academic Search Engine API.
 
 Data from BASE (Bielefeld Academic Search Engine) <https://www.base-search.net>
 
-[<img src="inst/img/BASE_search_engine_logo.svg.png" width="300">](https://www.base-search.net)
+[<img src="man/figures/BASE_search_engine_logo.svg.png" width="300">](https://www.base-search.net)
 
 ## Install
 
