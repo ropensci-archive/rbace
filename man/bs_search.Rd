@@ -5,10 +5,22 @@
 \alias{bs_meta}
 \title{Search BASE}
 \usage{
-bs_search(query = NULL, target = NULL, coll = NULL, boost_oa = FALSE,
-  hits = NULL, offset = NULL, fields = NULL, sortby = NULL,
-  facets = NULL, facet_limit = 100, facet_sort = NULL, raw = FALSE,
-  parse = "df", ...)
+bs_search(
+  query = NULL,
+  target = NULL,
+  coll = NULL,
+  boost_oa = FALSE,
+  hits = NULL,
+  offset = NULL,
+  fields = NULL,
+  sortby = NULL,
+  facets = NULL,
+  facet_limit = 100,
+  facet_sort = NULL,
+  raw = FALSE,
+  parse = "df",
+  ...
+)
 
 bs_meta(x)
 }
@@ -36,7 +48,7 @@ section "Fields"}
 
 \item{sortby}{(character) field to sort by. A sort ordering must include
 a single field name (see Appendix, section "Fields", table column
-"Sorting"), followed by a whitespace (escaped as + or %20 in URL strings),
+"Sorting"), followed by a whitespace (escaped as + or \%20 in URL strings),
 followed by sort direction (asc or desc). Default: sorts by relevance}
 
 \item{facets}{(character) The response contains an extra section

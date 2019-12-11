@@ -3,19 +3,20 @@ Type: Package
 Title: Bielefeld Academic Search Engine ('BASE') Client
 Description: Bielefeld Academic Search Engine ('BASE') 
     (<https://www.base-search.net/>) client.
-Version: 0.0.6.9510
+Version: 0.0.7.91
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/rbace
 BugReports: https://github.com/ropensci/rbace/issues
 Roxygen: list(markdown = TRUE)
+Encoding: UTF-8
+Language: en-US
 Imports:
-    crul (>= 0.3.0),
-    xml2 (>= 1.1.0),
+    crul,
+    xml2,
     data.table,
     tibble
 Suggests:
-    roxygen2 (>= 6.0.1),
     testthat
-RoxygenNote: 6.0.1
+RoxygenNote: 7.0.2
