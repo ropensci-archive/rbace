@@ -165,3 +165,4 @@ By participating in this project you agree to abide by its terms.
 
 [docs]: https://www.base-search.net/about/download/base_interface.pdf
 [token]: https://www.base-search.net/about/en/contact.php
+[coc]: https://github.com/ropensci/rbace/blob/master/CODE_OF_CONDUCT.md

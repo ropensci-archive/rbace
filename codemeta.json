@@ -115,7 +115,7 @@
   "contIntegration": ["https://travis-ci.org/ropensci/rbace", "https://codecov.io/gh/ropensci/rbace"],
   "developmentStatus": "https://www.repostatus.org/#wip",
   "readme": "https://github.com/ropensci/rbace/blob/master/README.md",
-  "fileSize": "133.442KB",
+  "fileSize": "133.486KB",
   "relatedLink": "https://docs.ropensci.org/rbace",
   "contributor": {},
   "copyrightHolder": {},
