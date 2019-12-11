@@ -1,7 +1,7 @@
 Package: rbace
 Type: Package
-Title: Bielefeld Academic Search Engine ('BASE') Client
-Description: Interface to the API for the Bielefeld Academic Search
+Title: 'Bielefeld' Academic Search Engine ('BASE') Client
+Description: Interface to the API for the 'Bielefeld' Academic Search
     Engine ('BASE') (<https://www.base-search.net/>). 'BASE' is a
     search engine for more than 150 million scholarly documents from more
     than 7000 sources.
