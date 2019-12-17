@@ -4,7 +4,13 @@ Title: 'Bielefeld' Academic Search Engine ('BASE') Client
 Description: Interface to the API for the 'Bielefeld' Academic Search
     Engine ('BASE') (<https://www.base-search.net/>). 'BASE' is a
     search engine for more than 150 million scholarly documents from more
-    than 7000 sources.
+    than 7000 sources. Methods are provided for searching for documents,
+    as well as getting information on higher level groupings of documents:
+    collections and repositories within collections. Search includes
+    faceting, so you can get a high level overview of number of documents
+    across a given variable (e.g., year). 'BASE' asks users to respect a
+    rate limit, but does not enforce it themselves; we enforce that
+    rate limit.
 Version: 0.1.0
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com", comment = c(ORCID="0000-0003-1444-9135")))
