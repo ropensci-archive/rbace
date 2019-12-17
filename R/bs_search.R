@@ -52,11 +52,7 @@
 #' <https://www.base-search.net/about/download/base_interface.pdf>,
 #' section "Fields", table column "Facet"
 #'
-#' @examples 
-#' # repository "ftubbiepub" containing the terms
-#' # "lossau" and "summann" (search in the whole document)
-#' 
-#' # prepare stub
+#' @examples
 #' unloadNamespace("vcr")
 #' library(webmockr)
 #' enable() # turn on mocking
@@ -65,8 +61,10 @@
 #'   "https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi")
 #' stub <- wi_th(stub, query = list(func="PerformSearch",
 #'   query="lossau summann", target="ftubbiepub", hits=3, facet_limit=100))
-#' to_return(stub, body = paste0(readLines(file), collapse=""))
+#' invisible(to_return(stub, body = paste0(readLines(file), collapse="")))
 #' 
+#' # repository "ftubbiepub" containing the terms
+#' # "lossau" and "summann" (search in the whole document)
 #' res <- bs_search(target = 'ftubbiepub', query = 'lossau summann', hits = 3)
 #' res$docs$dcsubject
 #' res$docs$dccreator
