@@ -18,10 +18,10 @@ knitr::opts_chunk$set(
 
 Client for interacting with the Bielefeld Academic Search Engine API.
 
-* [BASE API docs][docs]
-* You may have to ask for access for one or more of IP addresses you'll be accessing BASE from, but you may not. It used to be the case, but now seems like it's not IP restricted anymore. If you do need to, [request access here][token].
+* BASE API docs: https://www.base-search.net/about/download/base_interface.pdf
+* You may have to ask for access for one or more of IP addresses you'll be accessing BASE from, but you may not. It used to be the case, but now seems like it's not IP restricted anymore. If you do need to, request access: https://www.base-search.net/about/en/contact.php
 
-Data from BASE (Bielefeld Academic Search Engine) <https://www.base-search.net>
+Data from BASE (Bielefeld Academic Search Engine) https://www.base-search.net
 
 [<img src="man/figures/BASE_search_engine_logo.svg.png" width="300">](https://www.base-search.net)
 
@@ -82,6 +82,4 @@ By participating in this project you agree to abide by its terms.
 
 [![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
 
-[docs]: https://www.base-search.net/about/download/base_interface.pdf
-[token]: https://www.base-search.net/about/en/contact.php
 [coc]: https://github.com/ropensci/rbace/blob/master/CODE_OF_CONDUCT.md
