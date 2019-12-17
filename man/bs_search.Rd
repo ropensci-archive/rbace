@@ -98,17 +98,30 @@ section "Fields", table column "Facet"
 }
 
 \examples{
-\dontrun{
 # repository "ftubbiepub" containing the terms
 # "lossau" and "summann" (search in the whole document)
-res <- bs_search(target = 'ftubbiepub', query = 'lossau summann')
-res
+
+# prepare stub
+unloadNamespace("vcr")
+library(webmockr)
+enable() # turn on mocking
+file <- system.file("examples/bs_search_eg1.xml", package = "rbace")
+stub <- stub_request("get",
+  "https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi")
+stub <- wi_th(stub, query = list(func="PerformSearch",
+  query="lossau summann", target="ftubbiepub", hits=3, facet_limit=100))
+to_return(stub, body = paste0(readLines(file), collapse=""))
+
+res <- bs_search(target = 'ftubbiepub', query = 'lossau summann', hits = 3)
 res$docs$dcsubject
 res$docs$dccreator
 res$docs$dcidentifier
 attributes(res)
 bs_meta(res)
 
+disable() # turn off mocking
+
+\dontrun{
 # Italian repositories containing the term "manghi'
 # in the "dccreator" field (author).  The flag "boost" pushes open
 # access documents upwards in the result list

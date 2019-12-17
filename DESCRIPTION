@@ -20,6 +20,7 @@ BugReports: https://github.com/ropensci/rbace/issues
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Language: en-US
+LazyLoad: yes
 Imports:
     crul,
     xml2,
@@ -27,7 +28,8 @@ Imports:
     tibble
 Suggests:
     testthat,
-    vcr
+    vcr,
+    webmockr
 RoxygenNote: 7.0.2
 X-schema.org-applicationCategory: Literature
 X-schema.org-keywords: text-ming, literature, scholarly, citations, search
