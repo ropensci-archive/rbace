@@ -28,8 +28,7 @@ Imports:
     tibble
 Suggests:
     testthat,
-    vcr,
-    webmockr
+    vcr
 RoxygenNote: 7.0.2
 X-schema.org-applicationCategory: Literature
 X-schema.org-keywords: text-ming, literature, scholarly, citations, search
