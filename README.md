@@ -19,7 +19,8 @@ Data from BASE (Bielefeld Academic Search Engine) https://www.base-search.net
 
 ## Install
 
-```{r eval=FALSE}
+
+```r
 remotes::install_github("ropensci/rbace")
 ```
 
@@ -104,7 +105,7 @@ perform a search
 #> attr(,"status")
 #> [1] 0
 #> attr(,"QTime")
-#> [1] "13"
+#> [1] "40"
 #> attr(,"q")
 #> [1] "creator:manghi"
 #> attr(,"fl")
