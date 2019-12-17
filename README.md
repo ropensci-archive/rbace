@@ -3,10 +3,9 @@ rbace
 
 
 
-[![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/ropensci/rbace.svg?branch=master)](https://travis-ci.org/ropensci/rbace)
 [![codecov](https://codecov.io/gh/ropensci/rbace/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/rbace)
-[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbace)](https://github.com/metacran/cranlogs.app)
 
 
 Client for interacting with the Bielefeld Academic Search Engine API.
@@ -20,18 +19,8 @@ Data from BASE (Bielefeld Academic Search Engine) https://www.base-search.net
 
 ## Install
 
-CRAN version
-
-
-```r
-install.packages("rbace")
-```
-
-Development version
-
-
-```r
-devtools::install_github("ropensci/rbace")
+```{r eval=FALSE}
+remotes::install_github("ropensci/rbace")
 ```
 
 
