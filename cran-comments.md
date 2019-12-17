@@ -13,5 +13,10 @@
 This is a new release. I have read and agree to the the
 CRAN policies at https://cran.r-project.org/web/packages/policies.html
 
+This is a re-submission of the first version of this package. I have
+now described in more detail what the package is in the Description
+field of the DESCRIPTION file. In addition, there are now examples
+outside of \dontrun{} for every function.
+
 Thanks!
 Scott Chamberlain
