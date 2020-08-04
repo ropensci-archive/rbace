@@ -19,6 +19,7 @@ bs_search(
   facet_sort = NULL,
   raw = FALSE,
   parse = "df",
+  retry = bs_retry_options(),
   ...
 )
 
@@ -71,6 +72,11 @@ Default: count}
 \item{raw}{(logical) If \code{TRUE} returns raw XML, default: \code{FALSE}}
 
 \item{parse}{(character) One of 'list' or 'df'}
+
+\item{retry}{(list) use \code{\link[=bs_retry_options]{bs_retry_options()}} to make a named list of
+retry options to pass on to the HTTP request. default values are passed
+for you, but you can change them by setting an option in
+\code{bs_retry_options()}}
 
 \item{...}{Facet field based query options (See Facet below) or curl
 options passed on to \link[crul:verb-GET]{crul::verb-GET}}

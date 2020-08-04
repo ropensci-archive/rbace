@@ -35,6 +35,10 @@
 #' Default: count
 #' @param raw (logical) If `TRUE` returns raw XML, default: `FALSE`
 #' @param parse (character) One of 'list' or 'df'
+#' @param retry (list) use [bs_retry_options()] to make a named list of 
+#' retry options to pass on to the HTTP request. default values are passed
+#' for you, but you can change them by setting an option in
+#' `bs_retry_options()`
 #' @param ... Facet field based query options (See Facet below) or curl
 #' options passed on to [crul::verb-GET]
 #' @param x input to `bs_meta`
@@ -104,7 +108,7 @@
 bs_search <- function(query = NULL, target = NULL, coll = NULL,
   boost_oa = FALSE, hits = NULL, offset = NULL, fields = NULL, sortby = NULL,
   facets = NULL, facet_limit = 100, facet_sort = NULL, raw = FALSE,
-  parse = "df", ...) {
+  parse = "df", retry = bs_retry_options(), ...) {
 
   enforce_rate_limit()
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))
@@ -128,7 +132,8 @@ bs_search <- function(query = NULL, target = NULL, coll = NULL,
   facpars <- capture_facet_params(...)
   query <- c(query, facpars)
 
-  res <- bs_GET(query, drop_facet_params(...))
+  # res <- bs_GET(query, drop_facet_params(...))
+  res <- bs_RETRY(query, drop_facet_params(...), retry)
   if (raw) return(res) else return(bs_parse(res, parse))
 }
 
@@ -150,8 +155,32 @@ bs_meta <- function(x) {
   tmp$row.names <- NULL
   tmp$class <- NULL
   list(
-    query = tibble::data_frame(q = tmp$q, fl = tmp$fl,
+    query = tibble::tibble(q = tmp$q, fl = tmp$fl,
                                fq = tmp$fq, start = tmp$start),
-    response = tibble::data_frame(status = tmp$status, num_found = tmp$numFound)
+    response = tibble::tibble(status = tmp$status, num_found = tmp$numFound)
+  )
+}
+
+#' bs_search retry options
+#' @exports
+#' @param times the maximum number of times to retry.
+#' @param pause_base,pause_cap,pause_min basis, maximum, and minimum for
+#' calculating wait time for retry.
+#' @param terminate_on,retry_only_on a vector of HTTP status codes.
+#' @param onwait a callback function if the request will be retried and
+#' a wait time is being applied.
+#' @details see [crul::HttpClient] for more detailed explanation of these 
+#' parameters
+#' @return a named list with the parameters given to this function
+bs_retry_options <- function(pause_base = 1, pause_cap = 60, pause_min = 1,
+  times = 3, terminate_on = NULL, retry_only_on = NULL, onwait = NULL) {
+  list(
+    pause_base = pause_base,
+    pause_cap = pause_cap,
+    pause_min = pause_min,
+    times = times,
+    terminate_on = terminate_on,
+    retry_only_on = retry_only_on,
+    onwait = onwait
   )
 }

@@ -70,3 +70,36 @@ test_that("bs_search - fails well", {
     "class integer"
   )
 })
+
+test_that("bs_retry_options", {
+  expect_is(bs_retry_options, "function")
+  expect_is(bs_retry_options(), "list")
+  expect_named(bs_retry_options())
+  expect_equal(bs_retry_options(times=5)$times, 5)
+  expect_error(bs_retry_options(a=5))
+})
+
+test_that("bs_search - retry options", {
+  skip_on_cran()
+  skip_if_not_installed("webmockr")
+  tr <- function(...) tryCatch(..., error = function(e) e)
+
+  loadNamespace("webmockr")
+  webmockr::enable()
+
+  webmockr::stub_request("get", 
+    "https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi?func=PerformSearch&query=lossau%20summann&facet_limit=100") %>% 
+    webmockr::to_return(status = 429)
+  retries_0 <- system.time(tr(bs_search(query = 'lossau summann')))
+  webmockr::stub_registry_clear()
+
+  webmockr::stub_request("get", 
+    "https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi?func=PerformSearch&query=lossau%20summann&facet_limit=100") %>% 
+    webmockr::to_return(status = 429, times = 3)
+  retries_2 <- system.time(tr(bs_search(query = 'lossau summann', retry = bs_retry_options(pause_min = 2))))
+  webmockr::stub_registry_clear()
+
+  expect_gt(retries_2[["elapsed"]], retries_0[["elapsed"]])
+
+  webmockr::disable()
+})
