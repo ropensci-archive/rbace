@@ -54,6 +54,12 @@ test_that("bs_search - facets work", {
   expect_is(aa$facets, "list")
 })
 
+test_that("bs_search - filter param", {
+  skip_on_cran()
+  # filter should be character
+  expect_error(bs_search(target = 'ftubbiepub', query = '*', filter = 5))
+})
+
 test_that("bs_search - fails well", {
   skip_on_cran()
 

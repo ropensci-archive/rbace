@@ -33,6 +33,9 @@
 #' @param facet_sort (character) Ordering of the facet field constraints:
 #' count - sort by count (highest count first);  index - alphabetical sorting.
 #' Default: count
+#' @param filter (list) a string with the value to be used. do not html escape,
+#' that will be done for you - for context, gets used by `fq` solr parameter
+#' on the server
 #' @param raw (logical) If `TRUE` returns raw XML, default: `FALSE`
 #' @param parse (character) One of 'list' or 'df'
 #' @param retry (list) use [bs_retry_options()] to make a named list of 
@@ -107,8 +110,8 @@
 #' }
 bs_search <- function(query = NULL, target = NULL, coll = NULL,
   boost_oa = FALSE, hits = NULL, offset = NULL, fields = NULL, sortby = NULL,
-  facets = NULL, facet_limit = 100, facet_sort = NULL, raw = FALSE,
-  parse = "df", retry = bs_retry_options(), ...) {
+  facets = NULL, facet_limit = 100, facet_sort = NULL, filter = NULL,
+  raw = FALSE, parse = "df", retry = bs_retry_options(), ...) {
 
   enforce_rate_limit()
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))
@@ -119,6 +122,7 @@ bs_search <- function(query = NULL, target = NULL, coll = NULL,
   assert(offset, c("integer", "numeric"))
   assert(facet_limit, c("integer", "numeric"))
   assert(facet_sort, "character")
+  assert(filter, "character")
   if (!is.null(fields)) fields <- paste(fields, collapse = ",")
   if (!is.null(facets)) facets <- paste(facets, collapse = ",")
   query <- ct(list(func = 'PerformSearch', query = query,
@@ -126,7 +130,8 @@ bs_search <- function(query = NULL, target = NULL, coll = NULL,
                 boost = if (boost_oa) "oa" else NULL,
                 fields = fields, hits = hits, offset = offset,
                 sortby = sortby, facets = facets,
-                facet_limit = facet_limit, facet_sort = facet_sort))
+                facet_limit = facet_limit, facet_sort = facet_sort,
+                filter = filter))
 
   # add any field specific facet parameters
   facpars <- capture_facet_params(...)
@@ -162,7 +167,7 @@ bs_meta <- function(x) {
 }
 
 #' bs_search retry options
-#' @exports
+#' @export
 #' @param times the maximum number of times to retry.
 #' @param pause_base,pause_cap,pause_min basis, maximum, and minimum for
 #' calculating wait time for retry.

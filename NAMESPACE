@@ -3,4 +3,5 @@
 export(bs_meta)
 export(bs_profile)
 export(bs_repositories)
+export(bs_retry_options)
 export(bs_search)
