@@ -70,9 +70,9 @@ should be returned for the facet fields. Default: 100; min:1; max: 500}
 count - sort by count (highest count first);  index - alphabetical sorting.
 Default: count}
 
-\item{filter}{(list) a string with the value to be used. do not html escape,
-that will be done for you - for context, gets used by \code{fq} solr parameter
-on the server}
+\item{filter}{(character) a string with the value to be used. html escaping
+will be automatically done; embed string in \code{I()} to avoid html escaping.
+This parameter gets used by \code{fq} solr parameter on the server}
 
 \item{raw}{(logical) If \code{TRUE} returns raw XML, default: \code{FALSE}}
 

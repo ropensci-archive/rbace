@@ -33,9 +33,9 @@
 #' @param facet_sort (character) Ordering of the facet field constraints:
 #' count - sort by count (highest count first);  index - alphabetical sorting.
 #' Default: count
-#' @param filter (list) a string with the value to be used. do not html escape,
-#' that will be done for you - for context, gets used by `fq` solr parameter
-#' on the server
+#' @param filter (character) a string with the value to be used. html escaping
+#' will be automatically done; embed string in `I()` to avoid html escaping.
+#' This parameter gets used by `fq` solr parameter on the server
 #' @param raw (logical) If `TRUE` returns raw XML, default: `FALSE`
 #' @param parse (character) One of 'list' or 'df'
 #' @param retry (list) use [bs_retry_options()] to make a named list of 
@@ -122,7 +122,7 @@ bs_search <- function(query = NULL, target = NULL, coll = NULL,
   assert(offset, c("integer", "numeric"))
   assert(facet_limit, c("integer", "numeric"))
   assert(facet_sort, "character")
-  assert(filter, "character")
+  assert(filter, c("character", "AsIs"))
   if (!is.null(fields)) fields <- paste(fields, collapse = ",")
   if (!is.null(facets)) facets <- paste(facets, collapse = ",")
   query <- ct(list(func = 'PerformSearch', query = query,
