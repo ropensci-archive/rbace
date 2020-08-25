@@ -3,6 +3,8 @@ rbace 0.2.0
 
 ### MINOR IMPROVEMENTS
 
+First version to CRAN.
+
 * replace `dplyr` with `data.table::rbindlist` (#6)
 * two new functions: `bs_profile()`, `bs_repositories()` (#9)
 * add faceting to `bs_search()` (#10)
