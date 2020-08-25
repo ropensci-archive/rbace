@@ -17,16 +17,28 @@ knitr::opts_chunk$set(
 
 Client for interacting with the Bielefeld Academic Search Engine API.
 
-Docs: <https://docs.ropensci.org/rbace/>
+Docs: https://docs.ropensci.org/rbace/
 
-* BASE API docs: https://www.base-search.net/about/download/base_interface.pdf
-* You may have to ask for access for one or more of IP addresses you'll be accessing BASE from, but you may not. It used to be the case, but now seems like it's not IP restricted anymore. If you do need to, request access: https://www.base-search.net/about/en/contact.php
+BASE API docs: https://www.base-search.net/about/download/base_interface.pdf
+
+Access: The BASE API is IP address AND user-agent (see note below) restricted. The user agent is set correctly if you use this package, but you still need to get your IP address(es) white-listed by BASE. Request access at: https://www.base-search.net/about/en/contact.php - Note: the BASE website has a search portal you can use from anywhere; it's just the API that is IP and user-agent restricted.
+
+Terminology:
+
+- an [IP address](https://en.wikipedia.org/wiki/IP_address) is the numeric label identifying a computer or server. the IP address for a computer can change, e.g., if you connect to a VPN
+- a [user-agent](https://en.wikipedia.org/wiki/User_agent) is a string of text that identifies the software requesting data from a server (in this case BASE's API).
 
 Data from BASE (Bielefeld Academic Search Engine) https://www.base-search.net
 
 [<img src="man/figures/BASE_search_engine_logo.svg.png" width="300">](https://www.base-search.net)
 
 ## Install
+
+```{r eval=FALSE}
+install.packages("rbace")
+```
+
+or the dev version
 
 ```{r eval=FALSE}
 remotes::install_github("ropensci/rbace")

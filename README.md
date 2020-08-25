@@ -10,16 +10,29 @@ rbace
 
 Client for interacting with the Bielefeld Academic Search Engine API.
 
-Docs: <https://docs.ropensci.org/rbace/>
+Docs: https://docs.ropensci.org/rbace/
 
-* BASE API docs: https://www.base-search.net/about/download/base_interface.pdf
-* You may have to ask for access for one or more of IP addresses you'll be accessing BASE from, but you may not. It used to be the case, but now seems like it's not IP restricted anymore. If you do need to, request access: https://www.base-search.net/about/en/contact.php
+BASE API docs: https://www.base-search.net/about/download/base_interface.pdf
+
+Access: The BASE API is IP address AND user-agent (see note below) restricted. The user agent is set correctly if you use this package, but you still need to get your IP address(es) white-listed by BASE. Request access at: https://www.base-search.net/about/en/contact.php - Note: the BASE website has a search portal you can use from anywhere; it's just the API that is IP and user-agent restricted.
+
+Terminology:
+
+- an [IP address](https://en.wikipedia.org/wiki/IP_address) is the numeric label identifying a computer or server. the IP address for a computer can change, e.g., if you connect to a VPN
+- a [user-agent](https://en.wikipedia.org/wiki/User_agent) is a string of text that identifies the software requesting data from a server (in this case BASE's API).
 
 Data from BASE (Bielefeld Academic Search Engine) https://www.base-search.net
 
 [<img src="man/figures/BASE_search_engine_logo.svg.png" width="300">](https://www.base-search.net)
 
 ## Install
+
+
+```r
+install.packages("rbace")
+```
+
+or the dev version
 
 
 ```r
@@ -58,20 +71,20 @@ bs_profile(target = "ftjhin")
 
 ```r
 bs_repositories(coll = "ceu")
-#> # A tibble: 3,024 x 2
+#> # A tibble: 3,027 x 2
 #>    name                                                          internal_name  
 #>    <chr>                                                         <chr>          
-#>  1 IOP Publishing (via Crossref)                                 crioppubl      
-#>  2 Royal Society of Chemistry Journals, books & databases (via … crroyalschem   
-#>  3 Brill (via Crossref)                                          crbrillap      
-#>  4 Különbség (E-Journal)                                         ftjkulonbseg   
-#>  5 Acta Cybernetica (E-Journal)                                  ftjactacyberne…
-#>  6 Informa  (via Crossref)                                       crinformauk    
-#>  7 iReteslaw (Inst. of Slavic Studies, Polish Acad. of Sciences) ftpolishasiss2 
-#>  8 University of Lodz Research Online                            ftunivlodzdigij
-#>  9 Tampere University: Trepo                                     ftunivtampere  
-#> 10 Dictatorships and Democracies. Journal of History and Culture ftjdictatorshi…
-#> # … with 3,014 more rows
+#>  1 Ukrainian Journal of Radiology and Oncology                   ftjukroj       
+#>  2 M@n@gement (E-Journal)                                        ftjmgmt        
+#>  3 Blick in die Wissenschaft (E-Journal)                         ftjbidw        
+#>  4 thebmj (via Crossref)                                         crjcrbmj       
+#>  5 UARTPress: OJS                                                ftuartpressojs 
+#>  6 IOP Publishing (via Crossref)                                 crioppubl      
+#>  7 Royal Society of Chemistry Journals, books & databases (via … crroyalschem   
+#>  8 Brill (via Crossref)                                          crbrillap      
+#>  9 Különbség (E-Journal)                                         ftjkulonbseg   
+#> 10 Acta Cybernetica (E-Journal)                                  ftjactacyberne…
+#> # … with 3,017 more rows
 ```
 
 ## Search
@@ -85,21 +98,21 @@ perform a search
 #> # A tibble: 10 x 32
 #>    dchdate dcdocid dccontinent dccountry dccollection dcprovider dctitle
 #>    <chr>   <chr>   <chr>       <chr>     <chr>        <chr>      <chr>  
-#>  1 2017-0… 90f58a… ceu         it        ftpuma       PUMAlab (… Sfide …
-#>  2 2017-0… 2c669c… ceu         it        ftpuma       PUMAlab (… OpenAI…
-#>  3 2017-0… 412c04… ceu         it        ftpuma       PUMAlab (… EFG191…
-#>  4 2017-0… 967c7f… ceu         it        ftpuma       PUMAlab (… OpenAI…
-#>  5 2017-0… 3d820d… ceu         it        ftpuma       PUMAlab (… DRIVER…
-#>  6 2017-0… 242b25… ceu         it        ftpuma       PUMAlab (… DRIVER…
-#>  7 2017-0… 9be017… ceu         it        ftpuma       PUMAlab (… DRIVER…
-#>  8 2020-0… 338c5e… ceu         it        ftunivmodena Archivio … Multi-…
-#>  9 2017-0… af1126… ceu         it        ftpuma       PUMAlab (… DRIVER…
-#> 10 2017-0… fcaa8f… ceu         it        ftpuma       PUMAlab (… DRIVER…
+#>  1 2017-0… 9be017… ceu         it        ftpuma       PUMAlab (… DRIVER…
+#>  2 2017-0… 90f58a… ceu         it        ftpuma       PUMAlab (… Sfide …
+#>  3 2017-0… 2c669c… ceu         it        ftpuma       PUMAlab (… OpenAI…
+#>  4 2020-0… 338c5e… ceu         it        ftunivmodena Archivio … Multi-…
+#>  5 2017-0… af1126… ceu         it        ftpuma       PUMAlab (… DRIVER…
+#>  6 2017-0… fcaa8f… ceu         it        ftpuma       PUMAlab (… DRIVER…
+#>  7 2017-0… b4843e… ceu         it        ftpuma       PUMAlab (… DRIVER…
+#>  8 2017-0… 412c04… ceu         it        ftpuma       PUMAlab (… EFG191…
+#>  9 2017-0… 967c7f… ceu         it        ftpuma       PUMAlab (… OpenAI…
+#> 10 2017-0… 3d820d… ceu         it        ftpuma       PUMAlab (… DRIVER…
 #> # … with 25 more variables: dccreator <chr>, dcperson <chr>, dcsubject <chr>,
-#> #   dcdescription <chr>, dcpublisher <chr>, dcdate <chr>, dcyear <chr>,
-#> #   dctype <chr>, dctypenorm <chr>, dcformat <chr>, dccontenttype <chr>,
-#> #   dcidentifier <chr>, dclink <chr>, dcsource <chr>, dclanguage <chr>,
-#> #   dcrelation <chr>, dcrights <chr>, dcoa <chr>, dclang <chr>,
+#> #   dcdescription <chr>, dcdate <chr>, dcyear <chr>, dctype <chr>,
+#> #   dctypenorm <chr>, dcformat <chr>, dccontenttype <chr>, dcidentifier <chr>,
+#> #   dclink <chr>, dcsource <chr>, dclanguage <chr>, dcrelation <chr>,
+#> #   dcrights <chr>, dcoa <chr>, dclang <chr>, dcpublisher <chr>,
 #> #   dcautoclasscode <chr>, dcdeweyfull <chr>, dcdeweyhuns <chr>,
 #> #   dcdeweytens <chr>, dcdeweyones <chr>, dcdoi <chr>
 #> 
@@ -109,7 +122,7 @@ perform a search
 #> attr(,"status")
 #> [1] 0
 #> attr(,"QTime")
-#> [1] "10"
+#> [1] "124"
 #> attr(,"q")
 #> [1] "creator:manghi"
 #> attr(,"fl")
@@ -125,7 +138,7 @@ perform a search
 #> attr(,"start")
 #> [1] 0
 #> attr(,"maxScore")
-#> [1] "6.5131545"
+#> [1] "6.511785"
 ```
 
 get the search metadata
