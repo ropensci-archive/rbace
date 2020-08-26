@@ -127,7 +127,7 @@
   "developmentStatus": "https://www.repostatus.org/#active",
   "readme": "https://github.com/ropensci/rbace/blob/master/README.md",
   "fileSize": "0KB",
-  "relatedLink": "https://docs.ropensci.org/rbace",
+  "relatedLink": ["https://docs.ropensci.org/rbace", "https://docs.ropensci.org/rbace/"],
   "contributor": {},
   "copyrightHolder": {},
   "funder": {},
