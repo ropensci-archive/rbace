@@ -21,7 +21,7 @@ a data.frame of two columns: "name", "internal_name"
 List repositories for a collection
 }
 \examples{
-\dontrun{
+\donttest{
 res <- bs_repositories(coll = "ceu")
 bs_repositories(coll = "ceu")
 bs_repositories(coll = "denw")

@@ -7,7 +7,7 @@
 #' https://www.base-search.net/about/download/base_interface.pdf
 #' @param ... curl options passed on to [crul::verb-GET]
 #' @return a data.frame of two columns: "name", "internal_name"
-#' @examples \dontrun{
+#' @examples \donttest{
 #' res <- bs_repositories(coll = "ceu")
 #' bs_repositories(coll = "ceu")
 #' bs_repositories(coll = "denw")

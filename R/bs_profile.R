@@ -7,7 +7,7 @@
 #' @return a data.frame, of two columns: "name", "value".
 #' "name" holds the "value" description. you can pivot the 
 #' data.frame to wide by e.g., `tidyr::pivot_wider(x)`
-#' @examples \dontrun{
+#' @examples \donttest{
 #' res <- bs_repositories(coll = "de")
 #' bs_profile(target = res$internal_name[1])
 #' bs_profile(target = res$internal_name[2])

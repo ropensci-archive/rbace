@@ -109,7 +109,7 @@ section "Fields", table column "Facet"
 }
 
 \examples{
-\dontrun{
+\donttest{
 # repository "ftubbiepub" containing the terms
 # "lossau" and "summann" (search in the whole document)
 res <- bs_search(target = 'ftubbiepub', query = 'lossau summann', hits = 3)
