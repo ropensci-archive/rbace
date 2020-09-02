@@ -1,5 +1,7 @@
 context("bs_repositories")
 
+skip_on_ci()
+
 test_that("bs_repositories works", {
   skip_on_cran()
 

@@ -116,46 +116,5 @@ res <- bs_search(target = 'ftubbiepub', query = 'lossau summann', hits = 3)
 res$docs$dcsubject
 res$docs$dccreator
 res$docs$dcidentifier
-attributes(res)
-bs_meta(res)
-
-# Italian repositories containing the term "manghi'
-# in the "dccreator" field (author).  The flag "boost" pushes open
-# access documents upwards in the result list
-(res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost_oa = TRUE))
-
-# terms "schmidt" in dccreator field (author) and "biology" in dctitle.
-# The response starts after record 5 (offset=5) and contains max.
-# 5 hits with the fields dctitle, dccreator and dcyear
-(res <- bs_search(query = 'dccreator:schmidt dctitle:biology',
-  hits = 5, offset = 5, fields = c('dctitle', 'dccreator', 'dcyear')))
-
-# term "unix" and published between 1983 and 2009, sorted by year
-# of publication (dcyear) in descending order
-(res <- bs_search(query = 'unix dcyear:[1983 TO 2009]',
-  sortby = 'dcyear desc'))
-
-# raw XML output
-bs_search(target = 'ftubbiepub', query = 'lossau summann', raw = TRUE)
-
-# list output
-bs_search(target = 'ftubbiepub', query = 'lossau summann', parse = "list")
-
-out <- list()
-system.time(
-  for (i in 1:3) {
-    out[[i]] <- bs_search(target = 'ftubbiepub', query = 'lossau summann',
-      hits = 1)
-  }
-)
-out
-
-# Faceting
-bs_search(query = "unix", facets = c("dcsubject", "dcyear"),
-  facet_limit = 10)
-
-bs_search(query = "unix", facets = c("dcsubject", "dcyear"),
-  f_dcsubject = '"computer science"',
-  facet_limit = 10, verbose = TRUE)
 }
 }

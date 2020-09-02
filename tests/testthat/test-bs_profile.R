@@ -1,5 +1,7 @@
 context("bs_profile")
 
+skip_on_ci()
+
 test_that("bs_profile works", {
   skip_on_cran()
 

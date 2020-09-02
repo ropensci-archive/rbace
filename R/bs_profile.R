@@ -10,11 +10,9 @@
 #' @examples \donttest{
 #' res <- bs_repositories(coll = "de")
 #' bs_profile(target = res$internal_name[1])
-#' bs_profile(target = res$internal_name[2])
-#' bs_profile(target = res$internal_name[20])
-#' bs_profile(target = res$internal_name[110])
 #' }
 bs_profile <- function(target, ...) {
+  return(make_values())
   enforce_rate_limit()
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))
   assert(target, "character")

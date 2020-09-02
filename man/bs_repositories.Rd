@@ -22,9 +22,6 @@ List repositories for a collection
 }
 \examples{
 \donttest{
-res <- bs_repositories(coll = "ceu")
 bs_repositories(coll = "ceu")
-bs_repositories(coll = "denw")
-bs_repositories(coll = "de")
 }
 }

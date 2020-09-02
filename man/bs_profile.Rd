@@ -24,8 +24,5 @@ Get the profile for a repository
 \donttest{
 res <- bs_repositories(coll = "de")
 bs_profile(target = res$internal_name[1])
-bs_profile(target = res$internal_name[2])
-bs_profile(target = res$internal_name[20])
-bs_profile(target = res$internal_name[110])
 }
 }

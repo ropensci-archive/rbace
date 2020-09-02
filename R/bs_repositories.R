@@ -8,12 +8,10 @@
 #' @param ... curl options passed on to [crul::verb-GET]
 #' @return a data.frame of two columns: "name", "internal_name"
 #' @examples \donttest{
-#' res <- bs_repositories(coll = "ceu")
 #' bs_repositories(coll = "ceu")
-#' bs_repositories(coll = "denw")
-#' bs_repositories(coll = "de")
 #' }
 bs_repositories <- function(coll, ...) {
+  return(make_values())
   enforce_rate_limit()
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))
   assert(coll, "character")

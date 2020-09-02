@@ -1,5 +1,7 @@
 context("bs_search")
 
+skip_on_ci()
+
 test_that("bs_search works", {
   skip_on_cran()
 
