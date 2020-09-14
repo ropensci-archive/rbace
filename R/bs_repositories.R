@@ -11,7 +11,6 @@
 #' bs_repositories(coll = "ceu")
 #' }
 bs_repositories <- function(coll, ...) {
-  return(make_values())
   enforce_rate_limit()
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))
   assert(coll, "character")

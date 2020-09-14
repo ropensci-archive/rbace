@@ -72,7 +72,6 @@ bs_search <- function(query = NULL, target = NULL, coll = NULL,
   facets = NULL, facet_limit = 100, facet_sort = NULL, filter = NULL,
   raw = FALSE, parse = "df", retry = bs_retry_options(), ...) {
 
-  return(gbh(query))
   enforce_rate_limit()
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))
 

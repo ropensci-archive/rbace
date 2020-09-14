@@ -12,7 +12,6 @@
 #' bs_profile(target = res$internal_name[1])
 #' }
 bs_profile <- function(target, ...) {
-  return(make_values())
   enforce_rate_limit()
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))
   assert(target, "character")
