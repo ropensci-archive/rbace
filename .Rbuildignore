@@ -10,3 +10,4 @@ inst/img/*
 .github
 ^codemeta\.json$
 ^Makefile$
+^LICENSE\.md$
