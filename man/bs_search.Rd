@@ -108,13 +108,3 @@ https://www.base-search.net/about/download/base_interface.pdf,
 section "Fields", table column "Facet"
 }
 
-\examples{
-\donttest{
-# repository "ftubbiepub" containing the terms
-# "lossau" and "summann" (search in the whole document)
-res <- bs_search(target = 'ftubbiepub', query = 'lossau summann', hits = 3)
-res$docs$dcsubject
-res$docs$dccreator
-res$docs$dcidentifier
-}
-}

@@ -1,10 +1,10 @@
-#' rbace - Bielefeld Academic Search Engine Client
+#' rbace
 #' 
-#' BASE API docs: https://www.base-search.net/about/download/base_interface.pdf
+#' Bielefeld Academic Search Engine Client
 #'
 #' @name rbace-package
 #' @aliases rbace
 #' @docType package
-#' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
+#' @author Scott Chamberlain
 #' @keywords package
 NULL

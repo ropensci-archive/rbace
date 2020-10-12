@@ -20,8 +20,3 @@ a data.frame of two columns: "name", "internal_name"
 \description{
 List repositories for a collection
 }
-\examples{
-\donttest{
-bs_repositories(coll = "ceu")
-}
-}

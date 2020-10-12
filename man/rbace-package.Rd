@@ -4,11 +4,11 @@
 \name{rbace-package}
 \alias{rbace-package}
 \alias{rbace}
-\title{rbace - Bielefeld Academic Search Engine Client}
+\title{rbace}
 \description{
-BASE API docs: https://www.base-search.net/about/download/base_interface.pdf
+Bielefeld Academic Search Engine Client
 }
 \author{
-Scott Chamberlain \email{myrmecocystus@gmail.com}
+Scott Chamberlain
 }
 \keyword{package}

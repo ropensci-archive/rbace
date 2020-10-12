@@ -20,9 +20,3 @@ data.frame to wide by e.g., \code{tidyr::pivot_wider(x)}
 \description{
 Get the profile for a repository
 }
-\examples{
-\donttest{
-res <- bs_repositories(coll = "de")
-bs_profile(target = res$internal_name[1])
-}
-}
