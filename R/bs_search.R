@@ -58,15 +58,6 @@
 #' See example. For existing, pre-defined facet fields see Appendix at
 #' https://www.base-search.net/about/download/base_interface.pdf,
 #' section "Fields", table column "Facet"
-#'
-#' @examples \donttest{
-#' # repository "ftubbiepub" containing the terms
-#' # "lossau" and "summann" (search in the whole document)
-#' res <- bs_search(target = 'ftubbiepub', query = 'lossau summann', hits = 3)
-#' res$docs$dcsubject
-#' res$docs$dccreator
-#' res$docs$dcidentifier
-#' }
 bs_search <- function(query = NULL, target = NULL, coll = NULL,
   boost_oa = FALSE, hits = NULL, offset = NULL, fields = NULL, sortby = NULL,
   facets = NULL, facet_limit = 100, facet_sort = NULL, filter = NULL,

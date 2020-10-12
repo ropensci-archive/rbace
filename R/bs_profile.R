@@ -7,10 +7,6 @@
 #' @return a data.frame, of two columns: "name", "value".
 #' "name" holds the "value" description. you can pivot the 
 #' data.frame to wide by e.g., `tidyr::pivot_wider(x)`
-#' @examples \donttest{
-#' res <- bs_repositories(coll = "de")
-#' bs_profile(target = res$internal_name[1])
-#' }
 bs_profile <- function(target, ...) {
   enforce_rate_limit()
   on.exit(Sys.setenv(rbace_time = as.numeric(Sys.time())))

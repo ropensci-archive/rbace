@@ -1,3 +1,11 @@
+rbace 0.2.2
+===========
+
+### MINOR IMPROVEMENTS
+
+* asdfadfadfasdf
+
+
 rbace 0.2.0
 ===========
 

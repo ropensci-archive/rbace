@@ -11,3 +11,4 @@ inst/img/*
 ^codemeta\.json$
 ^Makefile$
 ^LICENSE\.md$
+vignettes/rbace.Rmd
