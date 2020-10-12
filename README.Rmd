@@ -11,8 +11,11 @@ knitr::opts_chunk$set(
 ```
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![cran checks](https://cranchecks.info/badges/worst/rbace)](https://cranchecks.info/pkgs/rbace)
 [![Build Status](https://travis-ci.org/ropensci/rbace.svg?branch=master)](https://travis-ci.org/ropensci/rbace)
 [![codecov](https://codecov.io/gh/ropensci/rbace/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/rbace)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbace?color=C9A115)](https://github.com/r-hub/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/rbace)](https://cran.r-project.org/package=rbace)
 
 
 Client for interacting with the Bielefeld Academic Search Engine API.
@@ -25,8 +28,8 @@ Access: The BASE API is IP address AND user-agent (see note below) restricted. T
 
 Terminology:
 
-- an [IP address](https://en.wikipedia.org/wiki/IP_address) is the numeric label identifying a computer or server. the IP address for a computer can change, e.g., if you connect to a VPN
-- a [user-agent](https://en.wikipedia.org/wiki/User_agent) is a string of text that identifies the software requesting data from a server (in this case BASE's API).
+- an IP address is the numeric label identifying a computer or server. the IP address for a computer can change, e.g., if you connect to a VPN
+- a user-agent is a string of text that identifies the software requesting data from a server (in this case BASE's API).
 
 Data from BASE (Bielefeld Academic Search Engine) https://www.base-search.net
 

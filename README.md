@@ -4,8 +4,11 @@ rbace
 
 
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![cran checks](https://cranchecks.info/badges/worst/rbace)](https://cranchecks.info/pkgs/rbace)
 [![Build Status](https://travis-ci.org/ropensci/rbace.svg?branch=master)](https://travis-ci.org/ropensci/rbace)
 [![codecov](https://codecov.io/gh/ropensci/rbace/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/rbace)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbace?color=C9A115)](https://github.com/r-hub/cranlogs.app)
+[![cran version](https://www.r-pkg.org/badges/version/rbace)](https://cran.r-project.org/package=rbace)
 
 
 Client for interacting with the Bielefeld Academic Search Engine API.
@@ -18,8 +21,8 @@ Access: The BASE API is IP address AND user-agent (see note below) restricted. T
 
 Terminology:
 
-- an [IP address](https://en.wikipedia.org/wiki/IP_address) is the numeric label identifying a computer or server. the IP address for a computer can change, e.g., if you connect to a VPN
-- a [user-agent](https://en.wikipedia.org/wiki/User_agent) is a string of text that identifies the software requesting data from a server (in this case BASE's API).
+- an IP address is the numeric label identifying a computer or server. the IP address for a computer can change, e.g., if you connect to a VPN
+- a user-agent is a string of text that identifies the software requesting data from a server (in this case BASE's API).
 
 Data from BASE (Bielefeld Academic Search Engine) https://www.base-search.net
 
@@ -52,17 +55,18 @@ library("rbace")
 
 ```r
 bs_profile(target = "ftjhin")
-#> # A tibble: 8 x 2
+#> # A tibble: 9 x 2
 #>   name               value                                           
 #>   <chr>              <chr>                                           
 #> 1 activation_date    2019-12-05                                      
 #> 2 country            de                                              
 #> 3 name               HiN - Alexander von Humboldt im Netz (E-Journal)
-#> 4 num_non_oa_records 0                                               
-#> 5 num_oa_cc_records  279                                             
-#> 6 num_oa_pd_records  0                                               
-#> 7 num_oa_records     279                                             
-#> 8 num_records        279
+#> 4 name_en            HiN - Alexander von Humboldt im Netz (E-Journal)
+#> 5 num_non_oa_records 0                                               
+#> 6 num_oa_cc_records  279                                             
+#> 7 num_oa_pd_records  0                                               
+#> 8 num_oa_records     279                                             
+#> 9 num_records        279
 ```
 
 ## List repositories for a collection
@@ -71,20 +75,20 @@ bs_profile(target = "ftjhin")
 
 ```r
 bs_repositories(coll = "ceu")
-#> # A tibble: 3,027 x 2
-#>    name                                                          internal_name  
-#>    <chr>                                                         <chr>          
-#>  1 Ukrainian Journal of Radiology and Oncology                   ftjukroj       
-#>  2 M@n@gement (E-Journal)                                        ftjmgmt        
-#>  3 Blick in die Wissenschaft (E-Journal)                         ftjbidw        
-#>  4 thebmj (via Crossref)                                         crjcrbmj       
-#>  5 UARTPress: OJS                                                ftuartpressojs 
-#>  6 IOP Publishing (via Crossref)                                 crioppubl      
-#>  7 Royal Society of Chemistry Journals, books & databases (via … crroyalschem   
-#>  8 Brill (via Crossref)                                          crbrillap      
-#>  9 Különbség (E-Journal)                                         ftjkulonbseg   
-#> 10 Acta Cybernetica (E-Journal)                                  ftjactacyberne…
-#> # … with 3,017 more rows
+#> # A tibble: 3,056 x 2
+#>    name                                                            internal_name
+#>    <chr>                                                           <chr>        
+#>  1 Gornye nauki i tekhnologii (E-Journal)                          ftjmst       
+#>  2 Hanser (Carl Hanser Verlag - via Crossref)                      crhanserverl…
+#>  3 Università della Calabria: Archivio Institutionale delle Tesi … ftunivcalabr…
+#>  4 hogrefe (via Crossref)                                          crhogrefe    
+#>  5 Iberoamericana Vervuert (via Crossref)                          crvervuert   
+#>  6 Manchester University Press (via Crossref)                      crmanchestupr
+#>  7 Bezmialem Vakıf Üniversitesi Kurumsal Akademik Arşiv            ftbezmialem  
+#>  8 ForAP - Forschungsergebnisse von Absolventen und Promovierende… ftjforap     
+#>  9 Movement and Nutrition in Health and Disease (E-Journal)        ftjmnhd      
+#> 10 Radcliffe Group (via Crossref)                                  crradcliffe  
+#> # … with 3,046 more rows
 ```
 
 ## Search
@@ -95,26 +99,26 @@ perform a search
 ```r
 (res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost = TRUE))
 #> $docs
-#> # A tibble: 10 x 32
+#> # A tibble: 10 x 31
 #>    dchdate dcdocid dccontinent dccountry dccollection dcprovider dctitle
 #>    <chr>   <chr>   <chr>       <chr>     <chr>        <chr>      <chr>  
-#>  1 2017-0… 9be017… ceu         it        ftpuma       PUMAlab (… DRIVER…
-#>  2 2017-0… 90f58a… ceu         it        ftpuma       PUMAlab (… Sfide …
-#>  3 2017-0… 2c669c… ceu         it        ftpuma       PUMAlab (… OpenAI…
-#>  4 2020-0… 338c5e… ceu         it        ftunivmodena Archivio … Multi-…
-#>  5 2017-0… af1126… ceu         it        ftpuma       PUMAlab (… DRIVER…
-#>  6 2017-0… fcaa8f… ceu         it        ftpuma       PUMAlab (… DRIVER…
-#>  7 2017-0… b4843e… ceu         it        ftpuma       PUMAlab (… DRIVER…
-#>  8 2017-0… 412c04… ceu         it        ftpuma       PUMAlab (… EFG191…
-#>  9 2017-0… 967c7f… ceu         it        ftpuma       PUMAlab (… OpenAI…
-#> 10 2017-0… 3d820d… ceu         it        ftpuma       PUMAlab (… DRIVER…
-#> # … with 25 more variables: dccreator <chr>, dcperson <chr>, dcsubject <chr>,
-#> #   dcdescription <chr>, dcdate <chr>, dcyear <chr>, dctype <chr>,
-#> #   dctypenorm <chr>, dcformat <chr>, dccontenttype <chr>, dcidentifier <chr>,
-#> #   dclink <chr>, dcsource <chr>, dclanguage <chr>, dcrelation <chr>,
-#> #   dcrights <chr>, dcoa <chr>, dclang <chr>, dcpublisher <chr>,
+#>  1 2017-0… 90f58a… ceu         it        ftpuma       PUMAlab (… Sfide …
+#>  2 2017-0… 2c669c… ceu         it        ftpuma       PUMAlab (… OpenAI…
+#>  3 2017-0… 9be017… ceu         it        ftpuma       PUMAlab (… DRIVER…
+#>  4 2017-0… 412c04… ceu         it        ftpuma       PUMAlab (… EFG191…
+#>  5 2017-0… 967c7f… ceu         it        ftpuma       PUMAlab (… OpenAI…
+#>  6 2017-0… 3d820d… ceu         it        ftpuma       PUMAlab (… DRIVER…
+#>  7 2017-0… 242b25… ceu         it        ftpuma       PUMAlab (… DRIVER…
+#>  8 2017-0… af1126… ceu         it        ftpuma       PUMAlab (… DRIVER…
+#>  9 2017-0… fcaa8f… ceu         it        ftpuma       PUMAlab (… DRIVER…
+#> 10 2017-0… b4843e… ceu         it        ftpuma       PUMAlab (… DRIVER…
+#> # … with 24 more variables: dccreator <chr>, dcperson <chr>, dcsubject <chr>,
+#> #   dcdescription <chr>, dcpublisher <chr>, dcdate <chr>, dcyear <chr>,
+#> #   dctype <chr>, dctypenorm <chr>, dcformat <chr>, dccontenttype <chr>,
+#> #   dcidentifier <chr>, dclink <chr>, dcsource <chr>, dclanguage <chr>,
+#> #   dcrelation <chr>, dcrights <chr>, dcoa <chr>, dclang <chr>,
 #> #   dcautoclasscode <chr>, dcdeweyfull <chr>, dcdeweyhuns <chr>,
-#> #   dcdeweytens <chr>, dcdeweyones <chr>, dcdoi <chr>
+#> #   dcdeweytens <chr>, dcdeweyones <chr>
 #> 
 #> $facets
 #> list()
@@ -122,7 +126,7 @@ perform a search
 #> attr(,"status")
 #> [1] 0
 #> attr(,"QTime")
-#> [1] "124"
+#> [1] "88"
 #> attr(,"q")
 #> [1] "creator:manghi"
 #> attr(,"fl")
@@ -134,11 +138,11 @@ perform a search
 #> attr(,"name")
 #> [1] "response"
 #> attr(,"numFound")
-#> [1] 4866
+#> [1] 4871
 #> attr(,"start")
 #> [1] 0
 #> attr(,"maxScore")
-#> [1] "6.511785"
+#> [1] "6.5124907"
 ```
 
 get the search metadata
@@ -156,7 +160,7 @@ bs_meta(res)
 #> # A tibble: 1 x 2
 #>   status num_found
 #>    <dbl>     <dbl>
-#> 1      0      4866
+#> 1      0      4871
 ```
 
 
