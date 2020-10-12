@@ -53,35 +53,6 @@ install.packages("rbace", repos = "https://dev.ropensci.org")
 library("rbace")
 ```
 
-## Get the profile for a repository
-
-
-```{r}
-bs_profile(target = "ftjhin")
-```
-
-## List repositories for a collection
-
-
-```{r}
-bs_repositories(coll = "ceu")
-```
-
-## Search
-
-perform a search
-
-```{r}
-(res <- bs_search(coll = 'it', query = 'dccreator:manghi', boost = TRUE))
-```
-
-get the search metadata
-
-```{r}
-bs_meta(res)
-```
-
-
 ## Meta
 
 * Please [report any issues or bugs](https://github.com/ropensci/rbace/issues).
