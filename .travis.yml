@@ -1,6 +1,7 @@
 language: r
 cache: packages
-dist: trusty
+os: linux
+dist: xenial
 
 r_packages:
   - covr
@@ -17,7 +18,7 @@ matrix:
       r: devel
       env: _R_CHECK_LENGTH_1_LOGIC2_=TRUE
 
-r_check_args: "--as-cran --run-dontrun"
+r_check_args: "--as-cran"
 
 notifications:
   email:
