@@ -10,13 +10,13 @@
   "codeRepository": "https://github.com/ropensci/rbace",
   "issueTracker": "https://github.com/ropensci/rbace/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.2 Patched (2020-06-30 r78761)",
+  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
   "author": [
     {
       "@type": "Person",
@@ -123,16 +123,25 @@
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     }
   ],
-  "contIntegration": ["https://travis-ci.org/ropensci/rbace", "https://codecov.io/gh/ropensci/rbace"],
+  "contIntegration": "https://travis-ci.org/ropensci/rbace",
   "developmentStatus": "https://www.repostatus.org/#active",
   "readme": "https://github.com/ropensci/rbace/blob/master/README.md",
   "fileSize": "0KB",
-  "relatedLink": ["https://docs.ropensci.org/rbace", "https://docs.ropensci.org/rbace/"],
+  "relatedLink": [
+    "https://docs.ropensci.org/rbace",
+    "https://docs.ropensci.org/rbace/"
+  ],
   "contributor": {},
   "copyrightHolder": {},
   "funder": {},
   "applicationCategory": "Literature",
   "isPartOf": "https://ropensci.org",
   "keywords": ["text-ming", "literature", "scholarly", "citations", "search", "api-wrapper", "scholarly-metadata", "rstats", "r", "r-package"],
-  "releaseNotes": "https://github.com/ropensci/rbace/blob/master/NEWS.md"
+  "releaseNotes": "https://github.com/ropensci/rbace/blob/master/NEWS.md",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  }
 }
