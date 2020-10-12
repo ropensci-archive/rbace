@@ -9,7 +9,7 @@
 
 ---
 
-This version xxxx.
+This version improves some tests.
 
 Thanks!
 Scott Chamberlain

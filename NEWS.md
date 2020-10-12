@@ -3,7 +3,7 @@ rbace 0.2.2
 
 ### MINOR IMPROVEMENTS
 
-* asdfadfadfasdf
+* improved some tests
 
 
 rbace 0.2.0

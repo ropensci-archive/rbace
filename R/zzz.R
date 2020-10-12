@@ -53,19 +53,3 @@ assert <- function(x, y) {
     }
   }
 }
-
-make_values <- function() {
-  return(5)
-}
-
-gbh <- function(query) {
-  list(
-    query = query,
-    docs = list(
-      dcsubject = "Mathematics",
-      dccreator = "Samuel Jones",
-      dcidentifier = 23423423234
-    )
-  )
-}
-
