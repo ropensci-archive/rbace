@@ -11,7 +11,7 @@ Description: Interface to the API for the 'Bielefeld' Academic Search
     across a given variable (e.g., year). 'BASE' asks users to respect a
     rate limit, but does not enforce it themselves; we enforce that
     rate limit.
-Version: 0.2.2
+Version: 0.2.2.91
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com", comment = c(ORCID="0000-0003-1444-9135")))
 License: MIT + file LICENSE
